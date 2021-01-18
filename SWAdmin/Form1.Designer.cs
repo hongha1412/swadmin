@@ -77,7 +77,7 @@
             this.tabFormControl1.Name = "tabFormControl1";
             this.tabFormControl1.Pages.Add(this.tabFormPage1);
             this.tabFormControl1.Pages.Add(this.tabFormPage2);
-            this.tabFormControl1.SelectedPage = this.tabFormPage1;
+            this.tabFormControl1.SelectedPage = this.tabFormPage2;
             this.tabFormControl1.ShowAddPageButton = false;
             this.tabFormControl1.Size = new System.Drawing.Size(835, 71);
             this.tabFormControl1.TabForm = this;
@@ -288,7 +288,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Controls.Add(this.tabFormContentContainer1);
+            this.Controls.Add(this.tabFormContentContainer2);
             this.Controls.Add(this.tabFormControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

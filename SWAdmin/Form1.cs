@@ -4,6 +4,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraSplashScreen;
 using FastMember;
 using SWAdmin.TableStruct;
 using System;
@@ -27,6 +28,7 @@ namespace SWAdmin
         Dictionary<string, DataTable> _dataTable;
         private string _currentResPath;
         private List<string> lsRes;
+        public WorkerTypeEnum _currentWork;
         public Form1()
         {
             InitializeComponent();
@@ -40,11 +42,17 @@ namespace SWAdmin
             _supportedFiles = new Dictionary<string, BaseStruct>();
             _supportedFiles.Add("tb_item.res", new TBItemServer());
             _supportedFiles.Add("tb_shop.res", new TBShopServer());
+            _supportedFiles.Add("tb_cashshop.res", new TBCashShopServer());
+            _supportedFiles.Add("tb_cashshop_tab.res", new TBCashShopTabServer());
+            _supportedFiles.Add("tb_cashbilling_info.res", new TBCashBillingInfoServer());
         }
         private void InitClientSupportedFiles()
         {
             _supportedFiles = new Dictionary<string, BaseStruct>();
             _supportedFiles.Add("tb_item.res", new TBItemClient());
+            _supportedFiles.Add("tb_shop.res", new TBShopClient());
+            _supportedFiles.Add("tb_cashshop.res", new TBCashShopClient());
+            _supportedFiles.Add("tb_cashbilling_info.res", new TBCashBillingInfoClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
@@ -67,10 +75,14 @@ namespace SWAdmin
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.splashScreenManager.ShowWaitForm();
+            if (!this.splashScreenManager.IsSplashFormVisible)
+            {
+                this.splashScreenManager.ShowWaitForm();
+            }
             WorkerArg arg = (WorkerArg)e.Argument;
             if (arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES || arg.WorkerType == WorkerTypeEnum.LOAD_CLIENT_RES)
             {
+                this._currentWork = arg.WorkerType;
                 this.LoadResDir(arg.WorkerType, arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES ? txtServerRes.Text : txtClientRes.Text);
             } else if (arg.WorkerType == WorkerTypeEnum.LOAD_RES)
             {
@@ -78,6 +90,10 @@ namespace SWAdmin
             } else if (arg.WorkerType == WorkerTypeEnum.SAVE_RES)
             {
                 this.SaveResData();
+            }
+            if (this.splashScreenManager.IsSplashFormVisible)
+            {
+                this.splashScreenManager.CloseWaitForm();
             }
         }
 
@@ -88,7 +104,6 @@ namespace SWAdmin
 
         private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.splashScreenManager.CloseWaitForm();
         }
 
         private void LoadResData(string filePath)
@@ -121,6 +136,14 @@ namespace SWAdmin
                 gridControl1.DataSource = _dataTable[filename];
                 gridView1.BestFitColumns();
             }));
+        }
+
+        private void TabContentClear()
+        {
+            this.lbRes.DataSource = null;
+            this.gridControl1.DataSource = null;
+            this.lbRes.Items.Clear();
+            this.gridView1.Columns.Clear();
         }
 
         private void LoadResDir(WorkerTypeEnum workerType, string resPath)
@@ -157,7 +180,10 @@ namespace SWAdmin
             lsRes = new List<string>();
             foreach (FileInfo fi in files)
             {
-                lsRes.Add(fi.Name);
+                if (this._supportedFiles.ContainsKey(fi.Name.ToLower()))
+                {
+                    lsRes.Add(fi.Name);
+                }
             }
             this._currentResPath = resPath;
             Invoke(new Action(() =>
@@ -207,9 +233,8 @@ namespace SWAdmin
         {
             gridControl1.DataSource = null;
             gridView1.Columns.Clear();
-            if (!_supportedFiles.ContainsKey(lbRes.SelectedItem.ToString().ToLower()))
+            if (lbRes == null || lbRes.SelectedItem == null || !_supportedFiles.ContainsKey(lbRes.SelectedItem.ToString().ToLower()))
             {
-                //XtraMessageBox.Show("Res file not supported yet");
                 return;
             }
             FileInfo fi = new FileInfo(Path.Combine(_currentResPath, lbRes.SelectedItem.ToString()));
@@ -219,7 +244,17 @@ namespace SWAdmin
                 return;
             }
             WorkerArg arg = new WorkerArg(WorkerTypeEnum.LOAD_RES, fi.FullName);
+            if (bgWorker.IsBusy)
+            {
+                this.CreateWorkerInstance();
+            }
             bgWorker.RunWorkerAsync(arg);
+        }
+
+        private void CreateWorkerInstance()
+        {
+            bgWorker = new BackgroundWorker();
+            bgWorker.DoWork += new DoWorkEventHandler(bgWorker_DoWork);
         }
 
         private void gridControl1_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -384,28 +419,40 @@ namespace SWAdmin
 
         private void gridView1_ClipboardRowPasting(object sender, ClipboardRowPastingEventArgs e)
         {
-            string filename = lbRes.SelectedItem.ToString().ToLower();
-            Type type = _supportedFiles[filename].GetType().GetField("lsData").FieldType.GetElementType();
-            var columnNames = _dataTable[filename].Columns.Cast<DataColumn>()
-                .Select(c => c.ColumnName)
-                .ToList();
-            var dr = e.OriginalValues;
-            var objT = Activator.CreateInstance(type) as BaseStruct;
-            
-            foreach (var field in type.GetFields())
+            try
             {
-                if (columnNames.Contains(field.Name) && !e.Values[field.Name].GetType().IsAssignableFrom(typeof(DBNull)))
-                    field.SetValue(objT, Convert.ChangeType(e.Values[field.Name], field.FieldType));
+                string filename = lbRes.SelectedItem.ToString().ToLower();
+                Type type = _supportedFiles[filename].GetType().GetField("lsData").FieldType.GetElementType();
+                var columnNames = _dataTable[filename].Columns.Cast<DataColumn>()
+                    .Select(c => c.ColumnName)
+                    .ToList();
+                var dr = e.OriginalValues;
+                var objT = Activator.CreateInstance(type) as BaseStruct;
+
+                foreach (var field in type.GetFields())
+                {
+                    if (columnNames.Contains(field.Name) && !e.Values[field.Name].GetType().IsAssignableFrom(typeof(DBNull)))
+                        field.SetValue(objT, Convert.ChangeType(e.Values[field.Name], field.FieldType));
+                }
+
+                object[] arrData = _supportedFiles[filename].GetType().GetField("lsData").GetValue(_supportedFiles[filename]) as object[];
+                Array setter = Array.CreateInstance(type, arrData.Length + 1);
+                for (int i = 0; i < arrData.Length; i++)
+                {
+                    setter.SetValue(arrData[i], i);
+                }
+                setter.SetValue(objT, arrData.Length);
+                _supportedFiles[filename].GetType().GetField("lsData").SetValue(_supportedFiles[filename], setter);
             }
-            
-            object[] arrData = _supportedFiles[filename].GetType().GetField("lsData").GetValue(_supportedFiles[filename]) as object[];
-            Array setter = Array.CreateInstance(type, arrData.Length + 1);
-            for (int i = 0; i < arrData.Length; i++)
+            catch (Exception ignored)
             {
-                setter.SetValue(arrData[i], i);
+                return;
             }
-            setter.SetValue(objT, arrData.Length);
-            _supportedFiles[filename].GetType().GetField("lsData").SetValue(_supportedFiles[filename], setter);
+        }
+
+        private void lbRes_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.lbRes_SelectedIndexChanged(sender, e);
         }
     }
 }

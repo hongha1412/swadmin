@@ -76,8 +76,14 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\TBCashBillingInfoClient.cs" />
+    <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
+    <Compile Include="TableStruct\TBCashShopTabServer.cs" />
+    <Compile Include="TableStruct\TBCashShopClient.cs" />
+    <Compile Include="TableStruct\TBCashShopServer.cs" />
     <Compile Include="TableStruct\TBItemClient.cs" />
     <Compile Include="TableStruct\TBItemServer.cs" />
+    <Compile Include="TableStruct\TBShopClient.cs" />
     <Compile Include="TableStruct\TBShopServer.cs" />
     <Compile Include="LoadingScreen.cs">
       <SubType>Form</SubType>
