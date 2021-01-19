@@ -82,6 +82,7 @@
     <Compile Include="TableStruct\TBCashShopClient.cs" />
     <Compile Include="TableStruct\TBCashShopServer.cs" />
     <Compile Include="TableStruct\TBItemClient.cs" />
+    <Compile Include="TableStruct\TBSKILLServer.cs" />
     <Compile Include="TableStruct\TBItemServer.cs" />
     <Compile Include="TableStruct\TBShopClient.cs" />
     <Compile Include="TableStruct\TBShopServer.cs" />
