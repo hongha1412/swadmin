@@ -46,6 +46,8 @@ namespace SWAdmin
             _supportedFiles.Add("tb_cashshop_tab.res", new TBCashShopTabServer());
             _supportedFiles.Add("tb_cashbilling_info.res", new TBCashBillingInfoServer());
             _supportedFiles.Add("tb_skill.res", new TBSKILLServer());
+            _supportedFiles.Add("tb_item_classify.res", new TBItemClassifyServer());
+            _supportedFiles.Add("tb_equalizer_info.res", new TBEqualizerInfoServer());
         }
         private void InitClientSupportedFiles()
         {
