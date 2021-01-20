@@ -76,6 +76,9 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\TBAchievementScriptClient.cs" />
+    <Compile Include="TableStruct\TBAchievementClient.cs" />
+    <Compile Include="TableStruct\TBAchievementServer.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoClient.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
     <Compile Include="TableStruct\TBEqualizerInfoServer.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="TableStruct\TBCashShopTabServer.cs" />
     <Compile Include="TableStruct\TBCashShopClient.cs" />
     <Compile Include="TableStruct\TBCashShopServer.cs" />
+    <Compile Include="TableStruct\TBItemScriptClient.cs" />
     <Compile Include="TableStruct\TBItemClient.cs" />
     <Compile Include="TableStruct\TBSKILLServer.cs" />
     <Compile Include="TableStruct\TBItemServer.cs" />

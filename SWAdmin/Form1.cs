@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars;
+﻿using DevExpress.Utils.Menu;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.BandedGrid;
@@ -29,12 +30,67 @@ namespace SWAdmin
         private string _currentResPath;
         private List<string> lsRes;
         public WorkerTypeEnum _currentWork;
+        public DXPopupMenu _exportMenu;
         public Form1()
         {
             InitializeComponent();
             _dataTable = new Dictionary<string, DataTable>();
             tabFormControl1.SelectedPage = tabFormPage1;
             tabFormControl1.SelectedContainer = tabFormContentContainer1;
+        }
+
+        private void CreateGridMenu()
+        {
+            if (_exportMenu == null)
+            {
+                _exportMenu = new DXPopupMenu();
+                _exportMenu.Caption = "Export data";
+                DXMenuItem toCsv = new DXMenuItem("-> to CSV");
+                DXMenuItem toTxtPlain = new DXMenuItem("-> to plain text");
+                DXMenuItem toTxtTrans = new DXMenuItem("-> to text for HQTranslation");
+                toCsv.Click += (o, args) =>
+                {
+                    if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraSaveFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        string filename = this.xtraSaveFileDialog.FileName;
+                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].ToCSV(filename);
+                        XtraMessageBox.Show("Data exported");
+                    }
+                };
+                toTxtPlain.Click += (o, args) =>
+                {
+                    if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraSaveFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        string filename = this.xtraSaveFileDialog.FileName;
+                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].ToTxtPlain(filename);
+                        XtraMessageBox.Show("Data exported");
+                    }
+                };
+                toTxtTrans.Click += (o, args) =>
+                {
+                    if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraSaveFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        string filename = this.xtraSaveFileDialog.FileName;
+                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].ToTxtTrans(filename);
+                        XtraMessageBox.Show("Data exported");
+                    }
+                };
+                _exportMenu.Items.Add(toCsv);
+                _exportMenu.Items.Add(toTxtPlain);
+                _exportMenu.Items.Add(toTxtTrans);
+            }
         }
 
         private void InitServerSupportedFiles()
@@ -48,6 +104,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_skill.res", new TBSKILLServer());
             _supportedFiles.Add("tb_item_classify.res", new TBItemClassifyServer());
             _supportedFiles.Add("tb_equalizer_info.res", new TBEqualizerInfoServer());
+            _supportedFiles.Add("tb_achievement.res", new TBAchievementServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -56,6 +113,9 @@ namespace SWAdmin
             _supportedFiles.Add("tb_shop.res", new TBShopClient());
             _supportedFiles.Add("tb_cashshop.res", new TBCashShopClient());
             _supportedFiles.Add("tb_cashbilling_info.res", new TBCashBillingInfoClient());
+            _supportedFiles.Add("tb_achievement.res", new TBAchievementClient());
+            _supportedFiles.Add("tb_achievement_script.res", new TBAchievementScriptClient());
+            _supportedFiles.Add("tb_item_script.res", new TBItemScriptClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
@@ -68,11 +128,13 @@ namespace SWAdmin
 
         private void btnLoadServerRes_Click(object sender, EventArgs e)
         {
+            this.lbRes.DataSource = null;
             bgWorker.RunWorkerAsync(new WorkerArg(WorkerTypeEnum.LOAD_SERVER_RES, txtServerRes.Text));
         }
 
         private void btnLoadClientRes_Click(object sender, EventArgs e)
         {
+            this.lbRes.DataSource = null;
             bgWorker.RunWorkerAsync(new WorkerArg(WorkerTypeEnum.LOAD_CLIENT_RES, txtClientRes.Text));
         }
 
@@ -86,10 +148,17 @@ namespace SWAdmin
             if (arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES || arg.WorkerType == WorkerTypeEnum.LOAD_CLIENT_RES)
             {
                 this._currentWork = arg.WorkerType;
+                this._exportMenu = null;
                 this.LoadResDir(arg.WorkerType, arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES ? txtServerRes.Text : txtClientRes.Text);
             } else if (arg.WorkerType == WorkerTypeEnum.LOAD_RES)
             {
                 this.LoadResData(arg.ArgValue.ToString());
+                this.CreateGridMenu();
+                // Prevent export data to txt HQTrans for server
+                if (this._currentWork == WorkerTypeEnum.LOAD_SERVER_RES && _exportMenu.Items.Count > 0)
+                {
+                    _exportMenu.Items.RemoveAt(_exportMenu.Items.Count - 1);
+                }
             } else if (arg.WorkerType == WorkerTypeEnum.SAVE_RES)
             {
                 this.SaveResData();
@@ -147,6 +216,7 @@ namespace SWAdmin
             this.gridControl1.DataSource = null;
             this.lbRes.Items.Clear();
             this.gridView1.Columns.Clear();
+            this._exportMenu = null;
         }
 
         private void LoadResDir(WorkerTypeEnum workerType, string resPath)
@@ -456,6 +526,17 @@ namespace SWAdmin
         private void lbRes_MouseDown(object sender, MouseEventArgs e)
         {
             this.lbRes_SelectedIndexChanged(sender, e);
+        }
+
+        private void gridView1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == GridMenuType.Row)
+            {
+                if (_exportMenu != null)
+                {
+                    e.Menu.Items.Add(_exportMenu);
+                }
+            }
         }
     }
 }
