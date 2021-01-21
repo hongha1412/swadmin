@@ -36,6 +36,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
             this.barbtnSave = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.tabFormDefaultManager1 = new DevExpress.XtraBars.TabFormDefaultManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -57,6 +58,7 @@
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SWAdmin.LoadingScreen), false, true);
             this.xtraSaveFileDialog = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormDefaultManager1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
@@ -71,7 +73,8 @@
             // tabFormControl1
             // 
             this.tabFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barbtnSave});
+            this.barbtnSave,
+            this.barButtonItem1});
             this.tabFormControl1.Location = new System.Drawing.Point(0, 0);
             this.tabFormControl1.Manager = this.tabFormDefaultManager1;
             this.tabFormControl1.Name = "tabFormControl1";
@@ -94,6 +97,12 @@
             this.barbtnSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barbtnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnSave_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Convert";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // tabFormDefaultManager1
             // 
             this.tabFormDefaultManager1.DockControls.Add(this.barDockControlTop);
@@ -103,8 +112,9 @@
             this.tabFormDefaultManager1.DockingEnabled = false;
             this.tabFormDefaultManager1.Form = this;
             this.tabFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barbtnSave});
-            this.tabFormDefaultManager1.MaxItemId = 4;
+            this.barbtnSave,
+            this.barButtonItem1});
+            this.tabFormDefaultManager1.MaxItemId = 5;
             // 
             // barDockControlTop
             // 
@@ -254,6 +264,7 @@
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.ClipboardRowPasting += new DevExpress.XtraGrid.Views.Grid.ClipboardRowPastingEventHandler(this.gridView1_ClipboardRowPasting);
+            this.gridView1.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gridView1_PopupMenuShowing);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
             // lbRes
@@ -278,6 +289,13 @@
             // xtraSaveFileDialog
             // 
             this.xtraSaveFileDialog.FileName = "xtraSaveFileDialog1";
+            // 
+            // bar1
+            // 
+            this.bar1.BarName = "Custom 2";
+            this.bar1.DockCol = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.Text = "Custom 2";
             // 
             // Form1
             // 
@@ -334,6 +352,8 @@
         private DevExpress.XtraBars.BarButtonItem barbtnSave;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager;
         private DevExpress.XtraEditors.XtraSaveFileDialog xtraSaveFileDialog;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.Bar bar1;
     }
 }
 

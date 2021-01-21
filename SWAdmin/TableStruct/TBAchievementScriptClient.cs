@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBAchievementScriptClient : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public AchievementScriptInfo[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,11 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class AchievementScriptInfo : BaseStruct
         {
-            public UInt32 Unknown;
+            public UInt32 ID;
+            public String Name = "";
+            public String Description = "";
 
             public override void beforeRead()
             {
