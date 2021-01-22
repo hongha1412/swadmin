@@ -192,3 +192,7 @@ E:\software\GAME\SoulWorker\SoulWorkerGit\swadmin\SWAdmin\obj\Debug\SWAdmin.cspr
 E:\software\GAME\SoulWorker\SoulWorkerGit\swadmin\SWAdmin\obj\Debug\SWAdmin.csproj.CopyComplete
 E:\software\GAME\SoulWorker\SoulWorkerGit\swadmin\SWAdmin\obj\Debug\SWAdmin.exe
 E:\software\GAME\SoulWorker\SoulWorkerGit\swadmin\SWAdmin\obj\Debug\SWAdmin.pdb
+C:\Users\Snart\source\repos\SWAdmin\SWAdmin\bin\Debug\GoogleTranslateFreeApi.pdb
+C:\Users\Snart\source\repos\SWAdmin\SWAdmin\bin\Debug\GoogleTranslateFreeApi.xml
+C:\Users\Snart\source\repos\SWAdmin\SWAdmin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Snart\source\repos\SWAdmin\SWAdmin\bin\Debug\Newtonsoft.Json.xml

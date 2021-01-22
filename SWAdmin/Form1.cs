@@ -30,7 +30,7 @@ namespace SWAdmin
         private string _currentResPath;
         private List<string> lsRes;
         public WorkerTypeEnum _currentWork;
-        public DXPopupMenu _exportMenu;
+        public List<DXPopupMenu> _gridMenu;
         public Form1()
         {
             InitializeComponent();
@@ -41,9 +41,10 @@ namespace SWAdmin
 
         private void CreateGridMenu()
         {
-            if (_exportMenu == null)
+            if (_gridMenu == null || _gridMenu.Count <= 0)
             {
-                _exportMenu = new DXPopupMenu();
+                _gridMenu = new List<DXPopupMenu>();
+                DXPopupMenu _exportMenu = new DXPopupMenu();
                 _exportMenu.Caption = "Export data";
                 DXMenuItem toCsv = new DXMenuItem("-> to CSV");
                 DXMenuItem toTxtPlain = new DXMenuItem("-> to plain text");
@@ -87,9 +88,57 @@ namespace SWAdmin
                         XtraMessageBox.Show("Data exported");
                     }
                 };
+                DXPopupMenu _importMenu = new DXPopupMenu();
+                _importMenu.Caption = "Import data";
+                DXMenuItem fromCsv = new DXMenuItem("-> from CSV");
+                DXMenuItem fromTxtTrans = new DXMenuItem("-> from text for HQTranslation");
+                fromCsv.Click += (o, args) =>
+                {
+                    if (gridView1.RowCount > 2000)
+                    {
+                        if (XtraMessageBox.Show("Data content is very large, maybe this function take along time to process, are you sure?", "Warning", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
+                    if (this.xtraOpenFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraOpenFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        string filename = this.xtraOpenFileDialog.FileName;
+                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromCsv(filename);
+                        XtraMessageBox.Show("Data imported");
+                    }
+                };
+                fromTxtTrans.Click += (o, args) =>
+                {
+                    if (gridView1.RowCount > 2000)
+                    {
+                        if (XtraMessageBox.Show("Data content is very large, maybe this function take along time to process, are you sure?", "Warning", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
+                    if (this.xtraOpenFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraOpenFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        string filename = this.xtraOpenFileDialog.FileName;
+                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromTxtTrans(filename);
+                        XtraMessageBox.Show("Data imported");
+                    }
+                };
                 _exportMenu.Items.Add(toCsv);
                 _exportMenu.Items.Add(toTxtPlain);
                 _exportMenu.Items.Add(toTxtTrans);
+                _importMenu.Items.Add(fromCsv);
+                _importMenu.Items.Add(fromTxtTrans);
+                _gridMenu.Add(_exportMenu);
+                _gridMenu.Add(_importMenu);
             }
         }
 
@@ -148,20 +197,22 @@ namespace SWAdmin
             if (arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES || arg.WorkerType == WorkerTypeEnum.LOAD_CLIENT_RES)
             {
                 this._currentWork = arg.WorkerType;
-                this._exportMenu = null;
+                this._gridMenu = null;
                 this.LoadResDir(arg.WorkerType, arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES ? txtServerRes.Text : txtClientRes.Text);
             } else if (arg.WorkerType == WorkerTypeEnum.LOAD_RES)
             {
                 this.LoadResData(arg.ArgValue.ToString());
                 this.CreateGridMenu();
                 // Prevent export data to txt HQTrans for server
-                if (this._currentWork == WorkerTypeEnum.LOAD_SERVER_RES && _exportMenu.Items.Count > 0)
+                if (this._currentWork == WorkerTypeEnum.LOAD_SERVER_RES && _gridMenu.Count > 0 && _gridMenu[0].Items.Count > 0)
                 {
-                    _exportMenu.Items.RemoveAt(_exportMenu.Items.Count - 1);
+                    _gridMenu[0].Items.RemoveAt(_gridMenu[0].Items.Count - 1);
                 }
             } else if (arg.WorkerType == WorkerTypeEnum.SAVE_RES)
             {
                 this.SaveResData();
+            } else if (arg.WorkerType == WorkerTypeEnum.TRANSLATE)
+            {
             }
             if (this.splashScreenManager.IsSplashFormVisible)
             {
@@ -216,7 +267,7 @@ namespace SWAdmin
             this.gridControl1.DataSource = null;
             this.lbRes.Items.Clear();
             this.gridView1.Columns.Clear();
-            this._exportMenu = null;
+            this._gridMenu = null;
         }
 
         private void LoadResDir(WorkerTypeEnum workerType, string resPath)
@@ -532,11 +583,42 @@ namespace SWAdmin
         {
             if (e.MenuType == GridMenuType.Row)
             {
-                if (_exportMenu != null)
+                if (_gridMenu != null && _gridMenu.Count > 0)
                 {
-                    e.Menu.Items.Add(_exportMenu);
+                    _gridMenu.ForEach(menu =>
+                    {
+                        e.Menu.Items.Add(menu);
+                    });
                 }
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (tabFormControl1.SelectedPage == tabFormPage2 && tabFormControl1.SelectedContainer == tabFormContentContainer2 && keyData == (Keys.Control | Keys.Shift | Keys.T))
+            {
+                try
+                {
+                    this.TranslateCell();
+                } catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void TranslateCell()
+        {
+            if (this.gridControl1.DataSource == null || lbRes == null || lbRes.DataSource == null || this._dataTable[lbRes.SelectedItem.ToString().ToLower()] == null)
+            {
+                XtraMessageBox.Show("Data not found");
+                return;
+            }
+            GridView view = (GridView) gridControl1.FocusedView;
+            string selectedValue = view.FocusedValue.ToString();
+            view.SetFocusedValue(Translator.translate(selectedValue));
         }
     }
 }

@@ -59,6 +59,7 @@
             this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SWAdmin.LoadingScreen), false, true);
             this.xtraSaveFileDialog = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.xtraOpenFileDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormDefaultManager1)).BeginInit();
             this.tabFormContentContainer1.SuspendLayout();
@@ -297,6 +298,10 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.Text = "Custom 2";
             // 
+            // xtraOpenFileDialog
+            // 
+            this.xtraOpenFileDialog.FileName = "xtraOpenFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,6 +359,7 @@
         private DevExpress.XtraEditors.XtraSaveFileDialog xtraSaveFileDialog;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraEditors.XtraOpenFileDialog xtraOpenFileDialog;
     }
 }
 
