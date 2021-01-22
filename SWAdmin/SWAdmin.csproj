@@ -77,6 +77,7 @@
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
     <Compile Include="TableStruct\TBSkillScriptClient.cs" />
+    <Compile Include="TableStruct\TBChattingCommandClient.cs" />
     <Compile Include="TableStruct\TBSpeechTagClient.cs" />
     <Compile Include="TableStruct\TBSpeechClient.cs" />
     <Compile Include="TableStruct\TBNameFilterClient.cs" />
