@@ -122,6 +122,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_achievement_script.res", new TBAchievementScriptClient());
             _supportedFiles.Add("tb_item_script.res", new TBItemScriptClient());
             _supportedFiles.Add("tb_character_parts.res", new TBCharacterPartsClient());
+            _supportedFiles.Add("tb_appearance.res", new TBAppearanceClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
