@@ -154,6 +154,8 @@ namespace SWAdmin
             _supportedFiles.Add("tb_item_classify.res", new TBItemClassifyServer());
             _supportedFiles.Add("tb_equalizer_info.res", new TBEqualizerInfoServer());
             _supportedFiles.Add("tb_achievement.res", new TBAchievementServer());
+            _supportedFiles.Add("tb_character_info.res", new TBCharacterInfoServer());
+            _supportedFiles.Add("tb_chattingcommand.res", new TBChattingCommandServer());
         }
         private void InitClientSupportedFiles()
         {
