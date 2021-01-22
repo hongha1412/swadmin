@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBNameFilterClient : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBNameFilter[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,11 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBNameFilter : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public UInt32 Unknown1;
+            public Byte Unknown2;
+            public String Unknown3 = "";
 
             public override void beforeRead()
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBSpeechTagClient : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBSpeechTag[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,19 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBSpeechTag : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public Byte Unknown1;
+            public String Unknown2 = "";
+            public Byte Unknown3;
+            public UInt32 Unknown4;
+            public UInt32 Unknown5;
+            public UInt32 Unknown6;
+            public UInt32 Unknown7;
+            public UInt32 Unknown8;
+            public UInt32 Unknown9;
+            public UInt32 Unknown10;
+            public UInt32 Unknown11;
 
             public override void beforeRead()
             {

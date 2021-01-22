@@ -156,6 +156,9 @@ namespace SWAdmin
             _supportedFiles.Add("tb_achievement.res", new TBAchievementServer());
             _supportedFiles.Add("tb_character_info.res", new TBCharacterInfoServer());
             _supportedFiles.Add("tb_chattingcommand.res", new TBChattingCommandServer());
+            _supportedFiles.Add("tb_serverinfo.res", new TBServerInfoServer());
+            _supportedFiles.Add("tb_specialmaze_open.res", new TBSpecialMazeOpenServer());
+            _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -167,6 +170,18 @@ namespace SWAdmin
             _supportedFiles.Add("tb_achievement.res", new TBAchievementClient());
             _supportedFiles.Add("tb_achievement_script.res", new TBAchievementScriptClient());
             _supportedFiles.Add("tb_item_script.res", new TBItemScriptClient());
+            _supportedFiles.Add("tb_character_parts.res", new TBCharacterPartsClient());
+            _supportedFiles.Add("tb_appearance.res", new TBAppearanceClient());
+            _supportedFiles.Add("tb_loading_img.res", new TBLoadingImgClient());
+            _supportedFiles.Add("tb_mazereward_golddirect.res", new TBMazeRewardGoldDirectClient());
+            _supportedFiles.Add("tb_namefilter.res", new TBNameFilterClient());
+            _supportedFiles.Add(ToLow("tb_Speech.res"), new TBSpeechClient());
+            _supportedFiles.Add(ToLow("tb_Speech_tag.res"), new TBSpeechTagClient());
+            _supportedFiles.Add(ToLow("tb_Skill_Script.res"), new TBSkillScriptClient());
+            _supportedFiles.Add(ToLow("tb_ChattingCommand.res"), new TBChattingCommandClient());
+        }
+        string ToLow(string input) {
+           return input.ToString().ToLower();
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {

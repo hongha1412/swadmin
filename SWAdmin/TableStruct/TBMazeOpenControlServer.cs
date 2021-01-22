@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBMazeOpenControlServer : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBMazeOpenControl[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,11 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBMazeOpenControl : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public UInt32 ID;
+            public UInt16 Open_Time;
+            public UInt16 Remain_Time;
 
             public override void beforeRead()
             {
