@@ -128,6 +128,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_namefilter.res", new TBNameFilterClient());
             _supportedFiles.Add(ToLow("tb_Speech.res"), new TBSpeechClient());
             _supportedFiles.Add(ToLow("tb_Speech_tag.res"), new TBSpeechTagClient());
+            _supportedFiles.Add(ToLow("tb_Skill_Script.res"), new TBSkillScriptClient());
         }
         string ToLow(string input) {
            return input.ToString().ToLower();
