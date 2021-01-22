@@ -123,6 +123,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_item_script.res", new TBItemScriptClient());
             _supportedFiles.Add("tb_character_parts.res", new TBCharacterPartsClient());
             _supportedFiles.Add("tb_appearance.res", new TBAppearanceClient());
+            _supportedFiles.Add("tb_loading_img.res", new TBLoadingImgClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
