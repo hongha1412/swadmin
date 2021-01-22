@@ -109,6 +109,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_chattingcommand.res", new TBChattingCommandServer());
             _supportedFiles.Add("tb_serverinfo.res", new TBServerInfoServer());
             _supportedFiles.Add("tb_specialmaze_open.res", new TBSpecialMazeOpenServer());
+            _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
         }
         private void InitClientSupportedFiles()
         {
