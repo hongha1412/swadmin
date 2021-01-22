@@ -107,6 +107,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_achievement.res", new TBAchievementServer());
             _supportedFiles.Add("tb_character_info.res", new TBCharacterInfoServer());
             _supportedFiles.Add("tb_chattingcommand.res", new TBChattingCommandServer());
+            _supportedFiles.Add("tb_serverinfo.res", new TBServerInfoServer());
         }
         private void InitClientSupportedFiles()
         {
