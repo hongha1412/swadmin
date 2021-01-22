@@ -126,6 +126,10 @@ namespace SWAdmin
             _supportedFiles.Add("tb_loading_img.res", new TBLoadingImgClient());
             _supportedFiles.Add("tb_mazereward_golddirect.res", new TBMazeRewardGoldDirectClient());
             _supportedFiles.Add("tb_namefilter.res", new TBNameFilterClient());
+            _supportedFiles.Add(ToLow("tb_Speech.res"), new TBSpeechClient());
+        }
+        string ToLow(string input) {
+           return input.ToString().ToLower();
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
