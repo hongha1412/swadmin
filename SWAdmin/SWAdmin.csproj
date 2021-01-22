@@ -115,6 +115,14 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\TBSkillScriptClient.cs" />
+    <Compile Include="TableStruct\TBChattingCommandClient.cs" />
+    <Compile Include="TableStruct\TBSpeechTagClient.cs" />
+    <Compile Include="TableStruct\TBSpeechClient.cs" />
+    <Compile Include="TableStruct\TBNameFilterClient.cs" />
+    <Compile Include="TableStruct\TBMazeRewardGoldDirectClient.cs" />
+    <Compile Include="TableStruct\TBLoadingImgClient.cs" />
+    <Compile Include="TableStruct\TBAppearanceClient.cs" />
     <Compile Include="TableStruct\TBAchievementScriptClient.cs" />
     <Compile Include="TableStruct\TBAchievementClient.cs" />
     <Compile Include="TableStruct\TBAchievementServer.cs" />
@@ -122,6 +130,10 @@
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
     <Compile Include="TableStruct\TBQuestScriptClient.cs" />
     <Compile Include="TableStruct\TBCharacterInfoServer.cs" />
+    <Compile Include="TableStruct\TBCharacterPartsClient.cs" />
+    <Compile Include="TableStruct\TBMazeOpenControlServer.cs" />
+    <Compile Include="TableStruct\TBSpecialMazeOpenServer.cs" />
+    <Compile Include="TableStruct\TBServerInfoServer.cs" />
     <Compile Include="TableStruct\TBChattingCommandServer.cs" />
     <Compile Include="TableStruct\TBEqualizerInfoServer.cs" />
     <Compile Include="TableStruct\TBItemClassifyServer.cs" />

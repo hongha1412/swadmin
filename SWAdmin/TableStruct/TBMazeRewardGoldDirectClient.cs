@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBMazeRewardGoldDirectClient : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBMazeRewardGoldDirect[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,16 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBMazeRewardGoldDirect : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public UInt32 Unknown1;
+            public UInt32 Unknown2;
+            public UInt32 Unknown3;
+            public UInt32 Unknown4;
+            public String Unknown5 = "";
+            public String Unknown6 = "";
+            public String Unknown7 = "";
+            public String Unknown8 = "";
 
             public override void beforeRead()
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBServerInfoServer : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBServerInfo[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,12 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBServerInfo : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public UInt32 Server_Index;
+            public String Server_Name="";
+            public Byte Server_Type;
+            public Byte PVP_Enable;
 
             public override void beforeRead()
             {

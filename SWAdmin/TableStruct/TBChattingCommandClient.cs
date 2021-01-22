@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBEqualizerInfoServer : BaseStruct
+    public class TBChattingCommandClient : BaseStruct
     {
-        public EqualizerInfo[] lsData;
+        public TBChattingCommand[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,9 +27,16 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class EqualizerInfo : BaseStruct
+        public class TBChattingCommand : BaseStruct
         {
-            public UInt32 Equalizer_ID;
+            public UInt32 Command_Index;
+            public Byte Permission_Level;
+            public String Command_1 = "";
+            public String Command_2 = "";
+            public String Command_3 = "";
+            public String Command_4 = "";
+            public String Command_5 = "";
+            public UInt32 Act_Type;
 
             public override void beforeRead()
             {
