@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    class TBCharacterInfoServer : BaseStruct
+    public class TBCharacterInfoServer : BaseStruct
     {
         public TBCharacterInfo[] lsData;
         public SWString md5_ = new SWString();
@@ -32,7 +32,7 @@ namespace SWAdmin.TableStruct
             public UInt16 ID;
             public Byte Character_ID;
             public UInt16 Character_Group_ID;
-            public String PC_Code_Name="";
+            public String PC_Code_Name = "";
             public UInt32 Item_ID_Weapon_01;
             public UInt32 Default_Cloth_ID_01;
             public UInt32 Default_Cloth_ID_02;
