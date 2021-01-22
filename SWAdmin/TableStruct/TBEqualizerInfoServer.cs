@@ -29,7 +29,7 @@ namespace SWAdmin.TableStruct
 
         public class EqualizerInfo : BaseStruct
         {
-            public UInt32 Unknown;
+            public UInt32 Equalizer_ID;
 
             public override void beforeRead()
             {
