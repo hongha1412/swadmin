@@ -82,6 +82,7 @@
     <Compile Include="TableStruct\TBCashBillingInfoClient.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
     <Compile Include="TableStruct\TBCharacterInfoServer.cs" />
+    <Compile Include="TableStruct\TBChattingCommandServer.cs" />
     <Compile Include="TableStruct\TBEqualizerInfoServer.cs" />
     <Compile Include="TableStruct\TBItemClassifyServer.cs" />
     <Compile Include="TableStruct\TBCashShopTabServer.cs" />
