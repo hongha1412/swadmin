@@ -125,6 +125,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_appearance.res", new TBAppearanceClient());
             _supportedFiles.Add("tb_loading_img.res", new TBLoadingImgClient());
             _supportedFiles.Add("tb_mazereward_golddirect.res", new TBMazeRewardGoldDirectClient());
+            _supportedFiles.Add("tb_namefilter.res", new TBNameFilterClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
