@@ -11,6 +11,7 @@ namespace SWAdmin
         LOAD_SERVER_RES,
         LOAD_CLIENT_RES,
         LOAD_RES,
-        SAVE_RES
+        SAVE_RES,
+        TRANSLATE
     }
 }

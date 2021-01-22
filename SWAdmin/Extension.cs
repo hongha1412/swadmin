@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoogleTranslateFreeApi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,12 +7,72 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SWAdmin
 {
     public static class DataTableExtension
     {
+        public static void FromCsv(this DataTable dtDataTable, string strFilePath)
+        {
+            StreamReader sr = new StreamReader(strFilePath);
+            string[] headers = sr.ReadLine().Split(',');
+            int rIndex = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] rows = sr.ReadLine().Split(',');
+                for (int i = 0, j = 0; i < headers.Length; i++)
+                {
+                    if (string.IsNullOrEmpty(headers[i]) && string.IsNullOrEmpty(rows[i]))
+                    {
+                        continue;
+                    }
+                    while (j < dtDataTable.Columns.Count && dtDataTable.Columns[j].ColumnName.StartsWith("_"))
+                    {
+                        j++;
+                    }
+                    if (j >= dtDataTable.Columns.Count)
+                    {
+                        continue;
+                    }
+                    dtDataTable.Rows[rIndex][j++] = rows[i];
+                }
+                rIndex++;
+            }
+        }
+        public static void FromTxtTrans(this DataTable dtDataTable, string strFilePath)
+        {
+            string[] lines = File.ReadAllLines(strFilePath);
+
+            uint id;
+            DataRow dr = null;
+            int index = 0;
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    continue;
+                }
+                if (line.StartsWith("ID="))
+                {
+                    id = uint.Parse(line.Replace("ID=", ""));
+                    DataRow[] arrDr = dtDataTable.Select(dtDataTable.Columns[0].ColumnName + "=" + id);
+                    if (arrDr.Length > 0)
+                    {
+                        dr = arrDr[0];
+                        index = 1;
+                    }
+                    continue;
+                }
+                while (index < dtDataTable.Columns.Count && dr[index].GetType().Name != "String")
+                {
+                    index++;
+                }
+                dr[index] = line.Trim();
+                index++;
+            }
+        }
         public static void ToTxtTrans(this DataTable dtDataTable, string strFilePath)
         {
             StreamWriter sw = new StreamWriter(strFilePath, false);
@@ -80,6 +141,10 @@ namespace SWAdmin
             //headers    
             for (int i = 0; i < dtDataTable.Columns.Count; i++)
             {
+                if (dtDataTable.Columns[i].ColumnName.StartsWith("_"))
+                {
+                    continue;
+                }
                 sw.Write(dtDataTable.Columns[i]);
                 if (i < dtDataTable.Columns.Count - 1)
                 {
