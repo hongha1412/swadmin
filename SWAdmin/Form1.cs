@@ -92,6 +92,7 @@ namespace SWAdmin
                 _importMenu.Caption = "Import data";
                 DXMenuItem fromCsv = new DXMenuItem("-> from CSV");
                 DXMenuItem fromTxtTrans = new DXMenuItem("-> from text for HQTranslation");
+                DXMenuItem fromRes = new DXMenuItem("-> from other res (Pls use same struct)");
                 fromCsv.Click += (o, args) =>
                 {
                     if (gridView1.RowCount > 2000)
@@ -107,9 +108,16 @@ namespace SWAdmin
                     }
                     if (!string.IsNullOrEmpty(this.xtraOpenFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
                     {
-                        string filename = this.xtraOpenFileDialog.FileName;
-                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromCsv(filename);
-                        XtraMessageBox.Show("Data imported");
+                        try
+                        {
+                            this.splashScreenManager.ShowWaitForm();
+                            string filename = this.xtraOpenFileDialog.FileName;
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromCsv(filename);
+                            XtraMessageBox.Show("Data imported");
+                        } finally
+                        {
+                            this.splashScreenManager.CloseWaitForm();
+                        }
                     }
                 };
                 fromTxtTrans.Click += (o, args) =>
@@ -127,16 +135,58 @@ namespace SWAdmin
                     }
                     if (!string.IsNullOrEmpty(this.xtraOpenFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
                     {
-                        string filename = this.xtraOpenFileDialog.FileName;
-                        this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromTxtTrans(filename);
-                        XtraMessageBox.Show("Data imported");
+                        try
+                        {
+                            this.splashScreenManager.ShowWaitForm();
+                            string filename = this.xtraOpenFileDialog.FileName;
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromTxtTrans(filename);
+                            XtraMessageBox.Show("Data imported");
+                        }
+                        finally
+                        {
+                            this.splashScreenManager.CloseWaitForm();
+                        }
                     }
+                };
+                fromRes.Click += (o, args) =>
+                {
+                    if (gridView1.RowCount > 2000)
+                    {
+                        if (XtraMessageBox.Show("Data content is very large, maybe this function take along time to process, are you sure?", "Warning", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
+                    if (this.xtraOpenFileDialog.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (!string.IsNullOrEmpty(this.xtraOpenFileDialog.FileName) && this._dataTable[lbRes.SelectedItem.ToString().ToLower()] != null)
+                    {
+                        try
+                        {
+                            this.splashScreenManager.ShowWaitForm();
+                            string filename = this.xtraOpenFileDialog.FileName;
+                            int cIndex = -1;
+                            try
+                            {
+                                int.Parse(XtraInputBox.Show("Do you want to specify import column? (-1 for import all)", "Info", "-1"));
+                            }
+                            catch (Exception) { }
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromRes(this.ReadResFile(filename, false), cIndex);
+                            XtraMessageBox.Show("Data imported");
+                        } finally
+                        {
+                            this.splashScreenManager.CloseWaitForm();
+                        }
+                }
                 };
                 _exportMenu.Items.Add(toCsv);
                 _exportMenu.Items.Add(toTxtPlain);
                 _exportMenu.Items.Add(toTxtTrans);
                 _importMenu.Items.Add(fromCsv);
                 _importMenu.Items.Add(fromTxtTrans);
+                _importMenu.Items.Add(fromRes);
                 _gridMenu.Add(_exportMenu);
                 _gridMenu.Add(_importMenu);
             }
@@ -167,6 +217,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_achievement.res", new TBAchievementClient());
             _supportedFiles.Add("tb_achievement_script.res", new TBAchievementScriptClient());
             _supportedFiles.Add("tb_item_script.res", new TBItemScriptClient());
+            _supportedFiles.Add("tb_quest_script.res", new TBQuestScriptClient());
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
@@ -363,18 +414,50 @@ namespace SWAdmin
             {
                 return;
             }
-            FileInfo fi = new FileInfo(Path.Combine(_currentResPath, lbRes.SelectedItem.ToString()));
+            this.ReadResFile(Path.Combine(_currentResPath, lbRes.SelectedItem.ToString()), true);
+        }
+
+        private DataTable ReadResFile(string filepath, bool isAsync)
+        {
+            FileInfo fi = new FileInfo(filepath);
             if (!fi.Exists)
             {
                 XtraMessageBox.Show("Res file not found");
-                return;
+                return null;
             }
-            WorkerArg arg = new WorkerArg(WorkerTypeEnum.LOAD_RES, fi.FullName);
-            if (bgWorker.IsBusy)
+            if (isAsync)
             {
-                this.CreateWorkerInstance();
+                WorkerArg arg = new WorkerArg(WorkerTypeEnum.LOAD_RES, fi.FullName);
+                if (bgWorker.IsBusy)
+                {
+                    this.CreateWorkerInstance();
+                }
+                bgWorker.RunWorkerAsync(arg);
             }
-            bgWorker.RunWorkerAsync(arg);
+            else
+            {
+                string filename = fi.Name;
+                var structdata = _supportedFiles[filename];
+                if (structdata._checksum <= 0)
+                {
+                    SWReader reader = new SWReader(filepath);
+                    try
+                    {
+                        reader.readObject(structdata);
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message);
+                    }
+                    structdata.ResetChecksum();
+                    structdata.calcChecksum();
+                }
+
+                object[] a = structdata.GetType().GetField("lsData").GetValue(structdata) as object[];
+                List<object> list = new List<object>(a);
+                return list.ToDataTable(a.GetType().GetElementType());
+            }
+            return null;
         }
 
         private void CreateWorkerInstance()
@@ -570,7 +653,7 @@ namespace SWAdmin
                 setter.SetValue(objT, arrData.Length);
                 _supportedFiles[filename].GetType().GetField("lsData").SetValue(_supportedFiles[filename], setter);
             }
-            catch (Exception ignored)
+            catch (Exception)
             {
                 return;
             }
@@ -621,6 +704,11 @@ namespace SWAdmin
             GridView view = (GridView) gridControl1.FocusedView;
             string selectedValue = view.FocusedValue.ToString();
             view.SetFocusedValue(Translator.translate(selectedValue));
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

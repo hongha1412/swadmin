@@ -9,11 +9,33 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SWAdmin
 {
     public static class DataTableExtension
     {
+        public static void FromRes(this DataTable dtDataTable, DataTable other, int cIndex)
+        {
+            foreach (DataRow dr in other.Rows)
+            {
+                DataRow[] arrDr = dtDataTable.Select(dtDataTable.Columns[0].ColumnName + "=" + dr[0]);
+                if (arrDr.Length > 0)
+                {
+                    if (cIndex < 0 || cIndex >= dtDataTable.Columns.Count)
+                    {
+                        for (int i = 0; i < other.Columns.Count; i++)
+                        {
+                            arrDr[0][i] = dr[i];
+                        }
+                    } else
+                    {
+                        arrDr[0][cIndex] = dr[cIndex];
+                    }
+                }
+                Application.DoEvents();
+            }
+        }
         public static void FromCsv(this DataTable dtDataTable, string strFilePath)
         {
             StreamReader sr = new StreamReader(strFilePath);
