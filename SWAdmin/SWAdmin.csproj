@@ -128,6 +128,7 @@
     <Compile Include="TableStruct\TBAchievementServer.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoClient.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
+    <Compile Include="TableStruct\TBQuestScriptClient.cs" />
     <Compile Include="TableStruct\TBCharacterInfoServer.cs" />
     <Compile Include="TableStruct\TBCharacterPartsClient.cs" />
     <Compile Include="TableStruct\TBMazeOpenControlServer.cs" />
