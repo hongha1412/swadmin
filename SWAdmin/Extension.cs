@@ -1,4 +1,5 @@
-﻿using GoogleTranslateFreeApi;
+﻿using DevExpress.XtraSplashScreen;
+using GoogleTranslateFreeApi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,24 +16,25 @@ namespace SWAdmin
 {
     public static class DataTableExtension
     {
-        public static void FromRes(this DataTable dtDataTable, DataTable other, int cIndex)
+        public static void FromRes(this DataTable dtDataTable, DataTable other, int cIndex, SplashScreenManager splashScreenManager)
         {
-            foreach (DataRow dr in other.Rows)
+            for (int rIndex = 0; rIndex < other.Rows.Count; rIndex++)
             {
-                DataRow[] arrDr = dtDataTable.Select(dtDataTable.Columns[0].ColumnName + "=" + dr[0]);
+                DataRow[] arrDr = dtDataTable.Select(dtDataTable.Columns[0].ColumnName + "=" + other.Rows[rIndex][0]);
                 if (arrDr.Length > 0)
                 {
                     if (cIndex < 0 || cIndex >= dtDataTable.Columns.Count)
                     {
                         for (int i = 0; i < other.Columns.Count; i++)
                         {
-                            arrDr[0][i] = dr[i];
+                            arrDr[0][i] = other.Rows[rIndex][i];
                         }
                     } else
                     {
-                        arrDr[0][cIndex] = dr[cIndex];
+                        arrDr[0][cIndex] = other.Rows[rIndex][cIndex];
                     }
                 }
+                splashScreenManager.SetWaitFormDescription((rIndex + 1) + "/" + other.Rows.Count);
                 Application.DoEvents();
             }
         }
@@ -63,22 +65,22 @@ namespace SWAdmin
                 rIndex++;
             }
         }
-        public static void FromTxtTrans(this DataTable dtDataTable, string strFilePath)
+        public static void FromTxtTrans(this DataTable dtDataTable, string strFilePath, SplashScreenManager splashScreenManager)
         {
             string[] lines = File.ReadAllLines(strFilePath);
 
             uint id;
             DataRow dr = null;
             int index = 0;
-            foreach (string line in lines)
+            for (int lIndex = 0; lIndex < lines.Length; lIndex++)
             {
-                if (string.IsNullOrEmpty(line))
+                if (string.IsNullOrEmpty(lines[lIndex]))
                 {
                     continue;
                 }
-                if (line.StartsWith("ID="))
+                if (lines[lIndex].StartsWith("ID="))
                 {
-                    id = uint.Parse(line.Replace("ID=", ""));
+                    id = uint.Parse(lines[lIndex].Replace("ID=", ""));
                     DataRow[] arrDr = dtDataTable.Select(dtDataTable.Columns[0].ColumnName + "=" + id);
                     if (arrDr.Length > 0)
                     {
@@ -91,8 +93,10 @@ namespace SWAdmin
                 {
                     index++;
                 }
-                dr[index] = line.Trim();
+                dr[index] = lines[lIndex].Trim();
                 index++;
+                splashScreenManager.SetWaitFormDescription((lIndex + 1) + "/" + lines.Length);
+                Application.DoEvents();
             }
         }
         public static void ToTxtTrans(this DataTable dtDataTable, string strFilePath)

@@ -139,7 +139,7 @@ namespace SWAdmin
                         {
                             this.splashScreenManager.ShowWaitForm();
                             string filename = this.xtraOpenFileDialog.FileName;
-                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromTxtTrans(filename);
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromTxtTrans(filename, this.splashScreenManager);
                             XtraMessageBox.Show("Data imported");
                         }
                         finally
@@ -173,7 +173,7 @@ namespace SWAdmin
                                 int.Parse(XtraInputBox.Show("Do you want to specify import column? (-1 for import all)", "Info", "-1"));
                             }
                             catch (Exception) { }
-                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromRes(this.ReadResFile(filename, false), cIndex);
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromRes(this.ReadResFile(filename, false), cIndex, this.splashScreenManager);
                             XtraMessageBox.Show("Data imported");
                         } finally
                         {
