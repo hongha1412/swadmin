@@ -230,6 +230,9 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Speech_tag.res"), new TBSpeechTagClient());
             _supportedFiles.Add(ToLow("tb_Skill_Script.res"), new TBSkillScriptClient());
             _supportedFiles.Add(ToLow("tb_ChattingCommand.res"), new TBChattingCommandClient());
+            _supportedFiles.Add(ToLow("Tb_Akashic_Slot_Extend.res"), new Tb_Akashic_Slot_Extend_Client());
+            _supportedFiles.Add(ToLow("tb_Booster_Script.res"), new tb_Booster_Script_Client());
+
         }
         string ToLow(string input) {
            return input.ToString().ToLower();
