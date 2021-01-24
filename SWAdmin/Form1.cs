@@ -247,6 +247,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Title_Info.res"), new tb_Title_Info_Client());
             _supportedFiles.Add(ToLow("tb_Aura.res"), new tb_Aura_Client());
             _supportedFiles.Add(ToLow("tb_Cinema_String.res"), new tb_Cinema_String_Client());
+            _supportedFiles.Add(ToLow("tb_Class_form.res"), new tb_Class_form_Client());
 
         }
         string ToLow(string input) {
