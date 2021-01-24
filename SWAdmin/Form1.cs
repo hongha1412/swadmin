@@ -245,6 +245,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Talk.res"), new tb_Talk_Client());
             _supportedFiles.Add(ToLow("tb_Talk_List.res"), new tb_Talk_List_Client());
             _supportedFiles.Add(ToLow("tb_Title_Info.res"), new tb_Title_Info_Client());
+            _supportedFiles.Add(ToLow("tb_Aura.res"), new tb_Aura_Client());
 
         }
         string ToLow(string input) {
