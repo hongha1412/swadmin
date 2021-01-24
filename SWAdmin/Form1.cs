@@ -238,6 +238,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Buff_Script.res"), new tb_Buff_Script_Client());
             _supportedFiles.Add(ToLow("tb_SystemMail.res"), new tb_SystemMail_Client());
             _supportedFiles.Add(ToLow("tb_UI_String.res"), new tb_UI_String_Client());
+            _supportedFiles.Add(ToLow("tb_Booster.res"), new tb_Booster_Client());
 
         }
         string ToLow(string input) {
