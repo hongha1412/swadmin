@@ -241,6 +241,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Booster.res"), new tb_Booster_Client());
             _supportedFiles.Add(ToLow("tb_Class_Speech.res"), new tb_Class_Speech_Client());
             _supportedFiles.Add(ToLow("tb_Skill.res"), new tb_Skill_Client());
+            _supportedFiles.Add(ToLow("tb_soul_metry.res"), new tb_soul_metry_Client());
 
         }
         string ToLow(string input) {
