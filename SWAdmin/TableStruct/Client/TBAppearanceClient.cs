@@ -34,7 +34,8 @@ namespace SWAdmin.TableStruct
             public Byte Unknown3;
             public UInt16 Unknown4;
             public UInt16 Unknown5;
-            public Byte Unknown6;
+            public String Unknown6 = "";
+            public Byte Unknown7;
 
             public override void beforeRead()
             {
