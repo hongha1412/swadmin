@@ -31,12 +31,14 @@ namespace SWAdmin
         private List<string> lsRes;
         public WorkerTypeEnum _currentWork;
         public List<DXPopupMenu> _gridMenu;
+        public List<string> _lsEditUnsupported = new List<string>();
         public Form1()
         {
             InitializeComponent();
             _dataTable = new Dictionary<string, DataTable>();
             tabFormControl1.SelectedPage = tabFormPage1;
             tabFormControl1.SelectedContainer = tabFormContentContainer1;
+            _lsEditUnsupported.Add("tb_monster.res");
         }
 
         private void CreateGridMenu()
@@ -214,6 +216,10 @@ namespace SWAdmin
             _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
             _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Server());
             _supportedFiles.Add(ToLow("tb_Quest_Episode.res"), new tb_Quest_Episode_Server());
+            _supportedFiles.Add("tb_daily_mission.res", new TBDailyMissionServer());
+            _supportedFiles.Add("tb_week_day.res", new TBWeekDayServer());
+            _supportedFiles.Add("tb_photo_item.res", new TBPhotoItemServer());
+            _supportedFiles.Add("tb_monster.res", new TBMonsterServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -469,6 +475,10 @@ namespace SWAdmin
         private DataTable ReadResFile(string filepath, bool isAsync)
         {
             FileInfo fi = new FileInfo(filepath);
+            if (this._lsEditUnsupported.Contains(fi.Name.ToLower()))
+            {
+                XtraMessageBox.Show(fi.Name + " is view only, checksum currently not work", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             if (!fi.Exists)
             {
                 XtraMessageBox.Show("Res file not found");
@@ -485,7 +495,7 @@ namespace SWAdmin
             }
             else
             {
-                string filename = fi.Name;
+                string filename = fi.Name.ToLower();
                 var structdata = _supportedFiles[filename];
                 if (structdata._checksum <= 0)
                 {

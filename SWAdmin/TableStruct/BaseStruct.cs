@@ -9,7 +9,7 @@ namespace SWAdmin.TableStruct
 {
     public abstract class BaseStruct
     {
-        public Int64 _checksum = 0;
+        public Decimal _checksum = 0;
         public long _total = 0;
         public long _offset = -1;
         public abstract void beforeRead();
@@ -68,17 +68,14 @@ namespace SWAdmin.TableStruct
                 case "Int64":
                 case "Byte":
                 case "Single":
-                //this._checksum += (UInt64)val;
-                //break;
                 case "Boolean":
-                    //this._checksum += (byte)val;
-                    basestruct._checksum += Convert.ToInt64(val);
+                    basestruct._checksum += Convert.ToDecimal(val);
                     return true;
                 case "String":
                     byte[] bytes = Encoding.Unicode.GetBytes((string)val);
-                    basestruct._checksum += Convert.ToUInt32(bytes.Length / 2);
+                    basestruct._checksum += Convert.ToDecimal(bytes.Length / 2);
                     for (int i = 0; i < bytes.Length; i++)
-                        basestruct._checksum += Convert.ToUInt32(bytes[i]);
+                        basestruct._checksum += Convert.ToDecimal(bytes[i]);
                     return true;
             }
             BaseStruct childBase = val as BaseStruct;
@@ -113,6 +110,24 @@ namespace SWAdmin.TableStruct
                 SWString md5String = new SWString();
                 md5String.zSetValue(sb.ToString().ToLower());
                 this.GetType().GetField("md5_").SetValue(this, md5String);
+            }
+        }
+
+        public String CreateMD5(object data)
+        {
+            // Use input string to calculate MD5 hash
+            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = Encoding.ASCII.GetBytes(data.ToString());
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Convert the byte array to hexadecimal string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+                return sb.ToString();
             }
         }
 

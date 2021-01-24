@@ -157,6 +157,10 @@
     <Compile Include="TableStruct\Client\TBCashBillingInfoClient.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />
     <Compile Include="TableStruct\Client\TBQuestScriptClient.cs" />
+    <Compile Include="TableStruct\TBMonsterServer.cs" />
+    <Compile Include="TableStruct\TBPhotoItemServer.cs" />
+    <Compile Include="TableStruct\TBWeekDayServer.cs" />
+    <Compile Include="TableStruct\TBDailyMissionServer.cs" />
     <Compile Include="TableStruct\TBCharacterInfoServer.cs" />
     <Compile Include="TableStruct\Client\TBCharacterPartsClient.cs" />
     <Compile Include="TableStruct\TBMazeOpenControlServer.cs" />
