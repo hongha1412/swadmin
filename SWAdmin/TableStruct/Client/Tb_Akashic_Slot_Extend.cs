@@ -29,9 +29,9 @@ namespace SWAdmin.TableStruct
 
         public class Tb_Akashic_Slot_Extend : BaseStruct
         {
-            public UInt16 Unknown1;
-            public UInt16 Unknown2;
-            public UInt16 Unknown3;
+            public Byte Unknown1;
+            public UInt32 Unknown2;
+            public Byte Unknown3;
 
             public override void beforeRead()
             {
