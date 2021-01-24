@@ -115,6 +115,7 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\Client\tb_Equalizer_Info.cs" />
     <Compile Include="TableStruct\Client\tb_Achievement_begin.cs" />
     <Compile Include="TableStruct\Client\tb_change_tab.cs" />
     <Compile Include="TableStruct\Client\tb_Character_Info.cs" />
