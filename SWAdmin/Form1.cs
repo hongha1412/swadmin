@@ -212,6 +212,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_serverinfo.res", new TBServerInfoServer());
             _supportedFiles.Add("tb_specialmaze_open.res", new TBSpecialMazeOpenServer());
             _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
+            _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Server());
         }
         private void InitClientSupportedFiles()
         {
@@ -248,6 +249,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Aura.res"), new tb_Aura_Client());
             _supportedFiles.Add(ToLow("tb_Cinema_String.res"), new tb_Cinema_String_Client());
             _supportedFiles.Add(ToLow("tb_Class_form.res"), new tb_Class_form_Client());
+            _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Client());
 
         }
         string ToLow(string input) {
