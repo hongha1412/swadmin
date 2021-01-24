@@ -49,8 +49,10 @@ namespace SWAdmin
                 DXMenuItem toCsv = new DXMenuItem("-> to CSV");
                 DXMenuItem toTxtPlain = new DXMenuItem("-> to plain text");
                 DXMenuItem toTxtTrans = new DXMenuItem("-> to text for HQTranslation");
+                string FileName = lbRes.SelectedItem.ToString();
                 toCsv.Click += (o, args) =>
                 {
+                    this.xtraSaveFileDialog.FileName = FileName + ".csv";
                     if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
                     {
                         return;
@@ -64,6 +66,7 @@ namespace SWAdmin
                 };
                 toTxtPlain.Click += (o, args) =>
                 {
+                    this.xtraSaveFileDialog.FileName = FileName + ".txt";
                     if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
                     {
                         return;
