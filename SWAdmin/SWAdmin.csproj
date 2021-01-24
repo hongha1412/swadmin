@@ -115,6 +115,8 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\Client\tb_PC_Costume.cs" />
+    <Compile Include="TableStruct\Client\tb_PC_Akashic.cs" />
     <Compile Include="TableStruct\Client\tb_Notice.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Reward_System_Month.cs" />
     <Compile Include="TableStruct\Client\tb_Defensive_Weapon.cs" />

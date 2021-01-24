@@ -261,6 +261,8 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Defensive_Weapon.res"), new tb_Defensive_Weapon_Client());
             _supportedFiles.Add(ToLow("tb_PC_Reward_System_Month.res"), new tb_PC_Reward_System_Month_Client());
             _supportedFiles.Add(ToLow("tb_Notice.res"), new tb_Notice_Client());
+            _supportedFiles.Add(ToLow("tb_PC_Akashic.res"), new tb_PC_Akashic_Client());
+            _supportedFiles.Add(ToLow("tb_PC_Costume.res"), new tb_PC_Costume_Client());
 
         }
         string ToLow(string input) {
