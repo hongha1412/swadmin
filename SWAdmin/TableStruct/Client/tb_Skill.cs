@@ -87,8 +87,8 @@ namespace SWAdmin.TableStruct
             public UInt32 Unknown56;
             public UInt32 Unknown57;
             public Byte Unknown58;
-            public UInt16 Unknown59;
-            public Byte Unknown60;
+            public Byte Unknown59;
+            public UInt16 Unknown60;
             public String Unknown61 = "";
             public UInt16 Unknown62;
             public UInt32 Unknown63;
