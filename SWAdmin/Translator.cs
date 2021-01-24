@@ -86,7 +86,7 @@ namespace SWAdmin
 
         private static string CleanString(string input)
         {
-            return input.Replace("<br/>", "<br>").Replace("<br />", "<br>").Replace("\n", "<br>");
+            return input.Replace("<br/>", "<br>").Replace("<br />", "<br>").Replace("\n", "<br>").Replace(" \n", "<br>").Replace("\n ", "<br>").Replace(" \n ", "<br>");
         }
     }
 }
