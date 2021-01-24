@@ -168,6 +168,7 @@
     <Compile Include="LoadingScreen.Designer.cs">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableStruct\tb_Quest_Episode.cs" />
     <Compile Include="TableStruct\tb_Common.cs" />
     <Compile Include="Translator.cs" />
     <Compile Include="WorkerArg.cs" />

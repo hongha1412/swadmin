@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class tb_Common_Server : BaseStruct
+    public class tb_Common_Client : BaseStruct
     {
         public tb_Common[] lsData;
         public SWString md5_ = new SWString();

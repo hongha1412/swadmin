@@ -213,6 +213,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_specialmaze_open.res", new TBSpecialMazeOpenServer());
             _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
             _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Server());
+            _supportedFiles.Add(ToLow("tb_Quest_Episode.res"), new tb_Quest_Episode_Server());
         }
         private void InitClientSupportedFiles()
         {
