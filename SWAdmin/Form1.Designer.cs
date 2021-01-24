@@ -115,7 +115,7 @@
             this.tabFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barbtnSave,
             this.barButtonItem1});
-            this.tabFormDefaultManager1.MaxItemId = 5;
+            this.tabFormDefaultManager1.MaxItemId = 6;
             // 
             // barDockControlTop
             // 
