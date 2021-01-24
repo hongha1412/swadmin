@@ -254,6 +254,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Achievement_begin.res"), new tb_Achievement_begin_Client());
             _supportedFiles.Add(ToLow("tb_Maze_Info.res"), new tb_Maze_Info_Client());
             _supportedFiles.Add(ToLow("tb_Quest_Episode.res"), new tb_Quest_Episode_Client());
+            _supportedFiles.Add(ToLow("tb_Character_Info.res"), new tb_Character_Info_Client());
 
         }
         string ToLow(string input) {
