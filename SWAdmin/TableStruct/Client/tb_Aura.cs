@@ -30,15 +30,14 @@ namespace SWAdmin.TableStruct
         public class tb_Aura : BaseStruct
         {
             public UInt16 Unknown1;
-            public UInt16 Unknown2;
-            public UInt16 Unknown3;
-            public UInt16 Unknown4;
+            public Byte Unknown2;
+            public UInt32 Unknown3;
+            public Byte Unknown4;
             public UInt32 Unknown5;
-            public UInt16 Unknown6;
+            public UInt32 Unknown6;
             public UInt16 Unknown7;
             public UInt16 Unknown8;
             public UInt16 Unknown9;
-            public UInt16 Unknown10;
 
             public override void beforeRead()
             {
