@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBAppearanceClient : BaseStruct
+    public class tb_Achievement_begin_Client : BaseStruct
     {
-        public TBAppearance[] lsData;
+        public tb_Achievement_begin[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,15 +27,11 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class TBAppearance : BaseStruct
+        public class tb_Achievement_begin : BaseStruct
         {
-            public UInt32 Unknown1;
-            public Byte Unknown2;
-            public Byte Unknown3;
-            public UInt16 Unknown4;
-            public UInt16 Unknown5;
-            public String Unknown6 = "";
-            public Byte Unknown7;
+            public UInt16 s1;
+            public UInt32 i1;
+            public Byte b1;
 
             public override void beforeRead()
             {

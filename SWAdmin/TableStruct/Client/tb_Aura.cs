@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBAppearanceClient : BaseStruct
+    public class tb_Aura_Client : BaseStruct
     {
-        public TBAppearance[] lsData;
+        public tb_Aura[] lsData;
         public SWString md5_ = new SWString();
 
         public override void beforeRead()
@@ -27,15 +27,17 @@ namespace SWAdmin.TableStruct
         {
         }
 
-        public class TBAppearance : BaseStruct
+        public class tb_Aura : BaseStruct
         {
-            public UInt32 Unknown1;
+            public UInt16 Unknown1;
             public Byte Unknown2;
-            public Byte Unknown3;
-            public UInt16 Unknown4;
-            public UInt16 Unknown5;
-            public String Unknown6 = "";
-            public Byte Unknown7;
+            public UInt32 Unknown3;
+            public Byte Unknown4;
+            public UInt32 Unknown5;
+            public UInt32 Unknown6;
+            public UInt16 Unknown7;
+            public UInt16 Unknown8;
+            public UInt16 Unknown9;
 
             public override void beforeRead()
             {

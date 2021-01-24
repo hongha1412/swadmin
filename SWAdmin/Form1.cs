@@ -49,8 +49,10 @@ namespace SWAdmin
                 DXMenuItem toCsv = new DXMenuItem("-> to CSV");
                 DXMenuItem toTxtPlain = new DXMenuItem("-> to plain text");
                 DXMenuItem toTxtTrans = new DXMenuItem("-> to text for HQTranslation");
+                string FileName = lbRes.SelectedItem.ToString();
                 toCsv.Click += (o, args) =>
                 {
+                    this.xtraSaveFileDialog.FileName = FileName + ".csv";
                     if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
                     {
                         return;
@@ -64,6 +66,7 @@ namespace SWAdmin
                 };
                 toTxtPlain.Click += (o, args) =>
                 {
+                    this.xtraSaveFileDialog.FileName = FileName + ".txt";
                     if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
                     {
                         return;
@@ -209,6 +212,8 @@ namespace SWAdmin
             _supportedFiles.Add("tb_serverinfo.res", new TBServerInfoServer());
             _supportedFiles.Add("tb_specialmaze_open.res", new TBSpecialMazeOpenServer());
             _supportedFiles.Add("tb_maze_opencontrol.res", new TBMazeOpenControlServer());
+            _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Server());
+            _supportedFiles.Add(ToLow("tb_Quest_Episode.res"), new tb_Quest_Episode_Server());
         }
         private void InitClientSupportedFiles()
         {
@@ -233,6 +238,20 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("Tb_Akashic_Slot_Extend.res"), new Tb_Akashic_Slot_Extend_Client());
             _supportedFiles.Add(ToLow("tb_Booster_Script.res"), new tb_Booster_Script_Client());
             _supportedFiles.Add(ToLow("tb_Buff_Script.res"), new tb_Buff_Script_Client());
+            _supportedFiles.Add(ToLow("tb_SystemMail.res"), new tb_SystemMail_Client());
+            _supportedFiles.Add(ToLow("tb_UI_String.res"), new tb_UI_String_Client());
+            _supportedFiles.Add(ToLow("tb_Booster.res"), new tb_Booster_Client());
+            _supportedFiles.Add(ToLow("tb_Class_Speech.res"), new tb_Class_Speech_Client());
+            _supportedFiles.Add(ToLow("tb_Skill.res"), new tb_Skill_Client());
+            _supportedFiles.Add(ToLow("tb_soul_metry.res"), new tb_soul_metry_Client());
+            _supportedFiles.Add(ToLow("tb_Talk.res"), new tb_Talk_Client());
+            _supportedFiles.Add(ToLow("tb_Talk_List.res"), new tb_Talk_List_Client());
+            _supportedFiles.Add(ToLow("tb_Title_Info.res"), new tb_Title_Info_Client());
+            _supportedFiles.Add(ToLow("tb_Aura.res"), new tb_Aura_Client());
+            _supportedFiles.Add(ToLow("tb_Cinema_String.res"), new tb_Cinema_String_Client());
+            _supportedFiles.Add(ToLow("tb_Class_form.res"), new tb_Class_form_Client());
+            _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Client());
+            _supportedFiles.Add(ToLow("tb_Achievement_begin.res"), new tb_Achievement_begin_Client());
 
         }
         string ToLow(string input) {
