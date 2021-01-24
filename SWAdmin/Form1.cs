@@ -252,6 +252,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Class_form.res"), new tb_Class_form_Client());
             _supportedFiles.Add(ToLow("tb_Common.res"), new tb_Common_Client());
             _supportedFiles.Add(ToLow("tb_Achievement_begin.res"), new tb_Achievement_begin_Client());
+            _supportedFiles.Add(ToLow("tb_Maze_Info.res"), new tb_Maze_Info_Client());
 
         }
         string ToLow(string input) {
