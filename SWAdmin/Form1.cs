@@ -240,6 +240,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_UI_String.res"), new tb_UI_String_Client());
             _supportedFiles.Add(ToLow("tb_Booster.res"), new tb_Booster_Client());
             _supportedFiles.Add(ToLow("tb_Class_Speech.res"), new tb_Class_Speech_Client());
+            _supportedFiles.Add(ToLow("tb_Skill.res"), new tb_Skill_Client());
 
         }
         string ToLow(string input) {

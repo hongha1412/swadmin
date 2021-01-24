@@ -117,6 +117,7 @@
     <Compile Include="TableStruct\BaseStruct.cs" />
     <Compile Include="TableStruct\Client\tb_Class_Speech.cs" />
     <Compile Include="TableStruct\Client\tb_Booster.cs" />
+    <Compile Include="TableStruct\Client\tb_Skill.cs" />
     <Compile Include="TableStruct\Client\tb_UI_String.cs" />
     <Compile Include="TableStruct\Client\tb_SystemMail.cs" />
     <Compile Include="TableStruct\Client\tb_Buff_Script.cs" />
