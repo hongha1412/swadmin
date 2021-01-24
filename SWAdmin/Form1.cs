@@ -257,6 +257,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Character_Info.res"), new tb_Character_Info_Client());
             _supportedFiles.Add(ToLow("tb_change_tab.res"), new tb_change_tab_Client());
             _supportedFiles.Add(ToLow("tb_Equalizer_Info.res"), new tb_Equalizer_Info_Client());
+            _supportedFiles.Add(ToLow("tb_SFX_BattleMaterial.res"), new tb_SFX_BattleMaterial_Client());
 
         }
         string ToLow(string input) {
