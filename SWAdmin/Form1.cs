@@ -269,6 +269,13 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Quest_Episode.res"), new tb_Quest_Episode_Client());
             _supportedFiles.Add(ToLow("tb_Character_Info.res"), new tb_Character_Info_Client());
             _supportedFiles.Add(ToLow("tb_change_tab.res"), new tb_change_tab_Client());
+            _supportedFiles.Add(ToLow("tb_Equalizer_Info.res"), new tb_Equalizer_Info_Client());
+            _supportedFiles.Add(ToLow("tb_SFX_BattleMaterial.res"), new tb_SFX_BattleMaterial_Client());
+            _supportedFiles.Add(ToLow("tb_Defensive_Weapon.res"), new tb_Defensive_Weapon_Client());
+            _supportedFiles.Add(ToLow("tb_PC_Reward_System_Month.res"), new tb_PC_Reward_System_Month_Client());
+            _supportedFiles.Add(ToLow("tb_Notice.res"), new tb_Notice_Client());
+            _supportedFiles.Add(ToLow("tb_PC_Akashic.res"), new tb_PC_Akashic_Client());
+            _supportedFiles.Add(ToLow("tb_PC_Costume.res"), new tb_PC_Costume_Client());
 
         }
         string ToLow(string input) {
