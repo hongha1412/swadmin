@@ -64,6 +64,10 @@ namespace SWAdmin
                     zBr.Write((bool)writeobj);
                     return;
                 case "String":
+                    if (writeobj.ToString().Length > 511)
+                    {
+                        writeobj = writeobj.ToString().Substring(0, 511);
+                    }
                     this.WriteString(writeobj, extrname);
                     return;
             }
