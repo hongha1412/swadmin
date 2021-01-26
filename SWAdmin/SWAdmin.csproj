@@ -146,6 +146,11 @@
     <Compile Include="TableStruct\Client\TBAppearanceClient.cs" />
     <Compile Include="TableStruct\Client\TBAchievementScriptClient.cs" />
     <Compile Include="TableStruct\Client\TBAchievementClient.cs" />
+    <Compile Include="TableStruct\TBReinforceServer.cs" />
+    <Compile Include="TableStruct\TBItemEvolutionServer.cs" />
+    <Compile Include="TableStruct\TBMazeRewardItemServer.cs" />
+    <Compile Include="TableStruct\TBMazeInfoServer.cs" />
+    <Compile Include="TableStruct\TBDropServer.cs" />
     <Compile Include="TableStruct\TBAchievementServer.cs" />
     <Compile Include="TableStruct\Client\TBCashBillingInfoClient.cs" />
     <Compile Include="TableStruct\TBCashBillingInfoServer.cs" />

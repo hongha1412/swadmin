@@ -39,6 +39,8 @@ namespace SWAdmin
             tabFormControl1.SelectedPage = tabFormPage1;
             tabFormControl1.SelectedContainer = tabFormContentContainer1;
             _lsEditUnsupported.Add("tb_monster.res");
+            _lsEditUnsupported.Add("tb_maze_info.res");
+            _lsEditUnsupported.Add("tb_reinforce.res");
         }
 
         private void CreateGridMenu()
@@ -220,6 +222,11 @@ namespace SWAdmin
             _supportedFiles.Add("tb_week_day.res", new TBWeekDayServer());
             _supportedFiles.Add("tb_photo_item.res", new TBPhotoItemServer());
             _supportedFiles.Add("tb_monster.res", new TBMonsterServer());
+            _supportedFiles.Add("tb_drop.res", new TBDropServer());
+            _supportedFiles.Add("tb_maze_info.res", new TBMazeInfoServer());
+            _supportedFiles.Add("tb_mazereward_item.res", new TBMazeRewardItemServer());
+            _supportedFiles.Add("tb_item_evolution.res", new TBItemEvolutionServer());
+            _supportedFiles.Add("tb_reinforce.res", new TBReinforceServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -732,16 +739,31 @@ namespace SWAdmin
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (tabFormControl1.SelectedPage == tabFormPage2 && tabFormControl1.SelectedContainer == tabFormContentContainer2 && keyData == (Keys.Control | Keys.Shift | Keys.T))
+            if (tabFormControl1.SelectedPage == tabFormPage2 && tabFormControl1.SelectedContainer == tabFormContentContainer2)
             {
-                try
+                if (keyData == (Keys.Control | Keys.Shift | Keys.T))
                 {
-                    this.TranslateCell();
-                } catch (Exception ex)
+                    try
+                    {
+                        this.TranslateCell();
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message);
+                    }
+                    return true;
+                } else if (keyData == (Keys.Control | Keys.R))
                 {
-                    XtraMessageBox.Show(ex.Message);
+                    FileInfo fi = new FileInfo(Path.Combine(_currentResPath, lbRes.SelectedItem.ToString()));
+                    _dataTable.Remove(fi.Name.ToLower());
+                    WorkerArg arg = new WorkerArg(WorkerTypeEnum.LOAD_RES, fi.FullName);
+                    if (bgWorker.IsBusy)
+                    {
+                        this.CreateWorkerInstance();
+                    }
+                    bgWorker.RunWorkerAsync(arg);
+                    return true;
                 }
-                return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -761,6 +783,21 @@ namespace SWAdmin
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void gridView1_CellValueChanging(object sender, CellValueChangedEventArgs e)
+        {
+            if (gridView1.GetSelectedCells().Length > 0)
+            {
+                foreach (GridCell cell in gridView1.GetSelectedCells())
+                {
+                    if (cell.RowHandle == e.RowHandle && cell.Column == e.Column)
+                    {
+                        continue;
+                    }
+                    gridView1.SetRowCellValue(cell.RowHandle, cell.Column, e.Value);
+                }
+            }
         }
     }
 }
