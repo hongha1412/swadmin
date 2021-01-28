@@ -191,7 +191,8 @@ namespace SWAdmin
                         string value = dr[i].ToString();
                         if (value.Contains('\n'))
                         {
-                            value = value.Replace("\n", "<br>");
+                            //value = value.Replace("\n", "<br>");
+                            value = Regex.Replace(value, "(\n)", "<br>");
                         }
                         if (value.Contains(','))
                         {
