@@ -9,7 +9,7 @@ namespace SWAdmin.TableStruct
 {
     public abstract class BaseStruct
     {
-        public Decimal _checksum = 0;
+        public Int64 _checksum = 0;
         public long _total = 0;
         public long _offset = -1;
         public abstract void beforeRead();
@@ -58,24 +58,26 @@ namespace SWAdmin.TableStruct
         {
             switch (valType.Name)
             {
+                case "UInt32":
                 case "Double":
                 case "Char":
+                case "Byte":
                 case "UInt16":
-                case "UInt32":
                 case "UInt64":
                 case "Int16":
                 case "Int32":
                 case "Int64":
-                case "Byte":
-                case "Single":
                 case "Boolean":
-                    basestruct._checksum += Convert.ToDecimal(val);
+                    basestruct._checksum += Convert.ToInt64(val);
                     return true;
                 case "String":
                     byte[] bytes = Encoding.Unicode.GetBytes((string)val);
-                    basestruct._checksum += Convert.ToDecimal(bytes.Length / 2);
+                    basestruct._checksum += Convert.ToInt64(bytes.Length / 2);
                     for (int i = 0; i < bytes.Length; i++)
-                        basestruct._checksum += Convert.ToDecimal(bytes[i]);
+                        basestruct._checksum += Convert.ToInt64(bytes[i]);
+                    return true;
+                case "Single":
+                    basestruct._checksum += Convert.ToInt64(Math.Floor(Convert.ToDecimal(val)));
                     return true;
             }
             BaseStruct childBase = val as BaseStruct;

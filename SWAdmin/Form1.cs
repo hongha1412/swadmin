@@ -38,9 +38,6 @@ namespace SWAdmin
             _dataTable = new Dictionary<string, DataTable>();
             tabFormControl1.SelectedPage = tabFormPage1;
             tabFormControl1.SelectedContainer = tabFormContentContainer1;
-            _lsEditUnsupported.Add("tb_monster.res");
-            _lsEditUnsupported.Add("tb_maze_info.res");
-            _lsEditUnsupported.Add("tb_reinforce.res");
         }
 
         private void CreateGridMenu()
@@ -227,6 +224,12 @@ namespace SWAdmin
             _supportedFiles.Add("tb_mazereward_item.res", new TBMazeRewardItemServer());
             _supportedFiles.Add("tb_item_evolution.res", new TBItemEvolutionServer());
             _supportedFiles.Add("tb_reinforce.res", new TBReinforceServer());
+            _supportedFiles.Add("tb_drop_group.res", new TBDropGroupServer());
+            _supportedFiles.Add("tb_drop_group_character.res", new TBDropGroupCharacterServer());
+            _supportedFiles.Add("tb_maze_open_group.res", new TBMazeOpenGroupServer());
+            _supportedFiles.Add("tb_npc.res", new TBNPCServer());
+            _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeServer());
+            _supportedFiles.Add("tb_akashic_records.res", new TBAkashicRecordsServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -276,7 +279,9 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Notice.res"), new tb_Notice_Client());
             _supportedFiles.Add(ToLow("tb_PC_Akashic.res"), new tb_PC_Akashic_Client());
             _supportedFiles.Add(ToLow("tb_PC_Costume.res"), new tb_PC_Costume_Client());
-
+            _supportedFiles.Add("tb_npc.res", new TBNPCClient());
+            _supportedFiles.Add("tb_akashic_records.res", new TBAkashicRecordsClient());
+            _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeClient());
         }
         string ToLow(string input) {
            return input.ToString().ToLower();
