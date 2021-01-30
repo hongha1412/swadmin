@@ -43,7 +43,6 @@ namespace SWAdmin
             StreamReader sr = new StreamReader(strFilePath);
             string[] headers = sr.ReadLine().Split(',');
             int rIndex = 0;
-            bool line_overflow_flag = false;
             while (!sr.EndOfStream)
             {
                 string[] rows = sr.ReadLine().Split(',');
@@ -61,9 +60,8 @@ namespace SWAdmin
                     {
                         continue;
                     }
-                    if (line_overflow_flag || rIndex >= dtDataTable.Rows.Count)//如果判断line_overflow_flag真后就不用再判断是不是大于了，节约资源
+                    if (rIndex >= dtDataTable.Rows.Count)//大于就新增行
                     {
-                        line_overflow_flag = true;
                         DataRow NewLine = dtDataTable.NewRow();
                         dtDataTable.Rows.Add(NewLine);
                         dtDataTable.Rows[rIndex][j++] = rows[i];
