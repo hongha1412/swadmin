@@ -60,7 +60,16 @@ namespace SWAdmin
                     {
                         continue;
                     }
-                    dtDataTable.Rows[rIndex][j++] = rows[i];
+                    if (rIndex >= dtDataTable.Rows.Count)//大于就新增行
+                    {
+                        DataRow NewLine = dtDataTable.NewRow();
+                        dtDataTable.Rows.Add(NewLine);
+                        dtDataTable.Rows[rIndex][j++] = rows[i];
+                    }
+                    else
+                    {
+                        dtDataTable.Rows[rIndex][j++] = rows[i];
+                    }
                 }
                 rIndex++;
             }
@@ -191,7 +200,8 @@ namespace SWAdmin
                         string value = dr[i].ToString();
                         if (value.Contains('\n'))
                         {
-                            value = value.Replace("\n", "<br>");
+                            //value = value.Replace("\n", "<br>");
+                            value = Regex.Replace(value, "(\n)", "<br>");
                         }
                         if (value.Contains(','))
                         {
