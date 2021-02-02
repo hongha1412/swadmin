@@ -117,6 +117,7 @@
     <Compile Include="TableStruct\BaseStruct.cs" />
     <Compile Include="TableStruct\Client\TBAkashicMakeClient.cs" />
     <Compile Include="TableStruct\Client\TBAkashicRecordsClient.cs" />
+    <Compile Include="TableStruct\Client\TBBuffClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Costume.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Akashic.cs" />
@@ -157,6 +158,10 @@
     <Compile Include="TableStruct\Client\TBAchievementScriptClient.cs" />
     <Compile Include="TableStruct\Client\TBAchievementClient.cs" />
     <Compile Include="TableStruct\TBAkashicRecordsServer.cs" />
+    <Compile Include="TableStruct\TBEchelonServer.cs" />
+    <Compile Include="TableStruct\TBDayEventServer.cs" />
+    <Compile Include="TableStruct\TBItemRandomBoxServer.cs" />
+    <Compile Include="TableStruct\TBBuffServer.cs" />
     <Compile Include="TableStruct\TBMazeOpenGroupServer.cs" />
     <Compile Include="TableStruct\TBDropGroupCharacterServer.cs" />
     <Compile Include="TableStruct\TBDropGroupServer.cs" />

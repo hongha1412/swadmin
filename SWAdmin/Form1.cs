@@ -230,6 +230,10 @@ namespace SWAdmin
             _supportedFiles.Add("tb_npc.res", new TBNPCServer());
             _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeServer());
             _supportedFiles.Add("tb_akashic_records.res", new TBAkashicRecordsServer());
+            _supportedFiles.Add("tb_buff.res", new TBBuffServer());
+            _supportedFiles.Add("tb_item_randombox.res", new TBItemRandomBoxServer());
+            _supportedFiles.Add("tb_day_event.res", new TBDayEventServer());
+            _supportedFiles.Add("tb_echelon.res", new TBEchelonServer());
         }
         private void InitClientSupportedFiles()
         {
@@ -282,6 +286,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_npc.res", new TBNPCClient());
             _supportedFiles.Add("tb_akashic_records.res", new TBAkashicRecordsClient());
             _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeClient());
+            _supportedFiles.Add("tb_buff.res", new TBBuffClient());
         }
         string ToLow(string input) {
            return input.ToString().ToLower();
@@ -543,6 +548,7 @@ namespace SWAdmin
 
         private void barbtnSave_ItemClick(object sender, ItemClickEventArgs e)
         {
+            this.xtraSaveFileDialog.FileName = lbRes.SelectedItem.ToString();
             if (this.xtraSaveFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
