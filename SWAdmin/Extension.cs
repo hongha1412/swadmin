@@ -43,9 +43,11 @@ namespace SWAdmin
             StreamReader sr = new StreamReader(strFilePath);
             string[] headers = sr.ReadLine().Split(',');
             int rIndex = 0;
+            int RawLenth = dtDataTable.Rows[rIndex].ItemArray.Length;//原始列长度
             while (!sr.EndOfStream)
             {
                 string[] rows = sr.ReadLine().Split(',');
+                bool newLineFlag = false;//新行flag
                 for (int i = 0, j = 0; i < headers.Length; i++)
                 {
                     if (string.IsNullOrEmpty(headers[i]) && string.IsNullOrEmpty(rows[i]))
@@ -60,15 +62,19 @@ namespace SWAdmin
                     {
                         continue;
                     }
-                    if (rIndex >= dtDataTable.Rows.Count)//大于就新增行
+                    if (rIndex >= dtDataTable.Rows.Count)//判断当前index是否大于行
                     {
                         DataRow NewLine = dtDataTable.NewRow();
-                        dtDataTable.Rows.Add(NewLine);
-                        dtDataTable.Rows[rIndex][j++] = rows[i];
+                        dtDataTable.Rows.Add(NewLine);//新增行
+                        newLineFlag = true;//设置新行flag
                     }
-                    else
+                    dtDataTable.Rows[rIndex][j++] = rows[i];
+                    if (newLineFlag == true && j >= RawLenth-3)//只有新行才需要追加checksum、total、offset
                     {
-                        dtDataTable.Rows[rIndex][j++] = rows[i];
+                        for (i = 0; i < 3; i++)
+                        {
+                            dtDataTable.Rows[rIndex][j+i] = 0;//临时方案，防止崩溃先填个0
+                        }
                     }
                 }
                 rIndex++;
