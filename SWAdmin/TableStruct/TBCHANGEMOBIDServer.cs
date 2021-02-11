@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class CHANGE_MOB_IDInfo : BaseStruct
         {
             public UInt32 MOB_ID_Difficulty01;
-public UInt32 MOB_ID_Difficulty02;
-public UInt32 MOB_ID_Difficulty03;
+            public UInt32 MOB_ID_Difficulty02;
+            public UInt32 MOB_ID_Difficulty03;
 
 
             public override void beforeRead()

@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class NAMEFILTERInfo : BaseStruct
         {
             public UInt32 Filter_Index;
-public Byte Filter_Type;
-public String Filter_Word_String = "";
+            public Byte Filter_Type;
+            public String Filter_Word_String = "";
 
 
             public override void beforeRead()

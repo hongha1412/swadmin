@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class TALK_STRINGInfo : BaseStruct
         {
             public UInt16 Talk_Str_ID;
-public String Talk_Str_String = "";
+            public String Talk_Str_String = "";
 
 
             public override void beforeRead()

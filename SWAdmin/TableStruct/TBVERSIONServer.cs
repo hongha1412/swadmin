@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class VERSIONInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 MainVer;
-public UInt32 SubVer;
-public UInt32 DataVer;
+            public UInt32 MainVer;
+            public UInt32 SubVer;
+            public UInt32 DataVer;
 
 
             public override void beforeRead()

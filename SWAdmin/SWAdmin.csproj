@@ -119,6 +119,7 @@
     <Compile Include="TableStruct\Client\TBAkashicRecordsClient.cs" />
     <Compile Include="TableStruct\Client\TBBuffClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
+    <Compile Include="TableStruct\Client\TBRandomGetClient.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Costume.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Akashic.cs" />
     <Compile Include="TableStruct\Client\tb_Notice.cs" />

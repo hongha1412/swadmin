@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class FACTIONInfo : BaseStruct
         {
             public UInt32 ID;
-public Byte Local_Faction_Type;
-public Byte Enamy_Faction_Type;
-public Byte Faction_Type;
+            public Byte Local_Faction_Type;
+            public Byte Enamy_Faction_Type;
+            public Byte Faction_Type;
 
 
             public override void beforeRead()

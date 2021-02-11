@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class SYSTEMMAILInfo : BaseStruct
         {
             public Byte SysMail_ID;
-public UInt16 SysMail_TypeID;
-public UInt16 SysMail_TypeTargetID;
+            public UInt16 SysMail_TypeID;
+            public UInt16 SysMail_TypeTargetID;
 
 
             public override void beforeRead()

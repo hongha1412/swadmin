@@ -26,12 +26,12 @@ namespace SWAdmin.TableStruct
         public class AURAInfo : BaseStruct
         {
             public UInt16 Aura_Index;
-public Byte Apply_Target;
-public UInt32 Valid_Distance;
-public Byte Check_Type;
-public UInt32 Check_Time;
-public UInt32 Aura_Time;
-public UInt16 Apply_Buff;
+            public Byte Apply_Target;
+            public UInt32 Valid_Distance;
+            public Byte Check_Type;
+            public UInt32 Check_Time;
+            public UInt32 Aura_Time;
+            public UInt16 Apply_Buff;
 
 
             public override void beforeRead()

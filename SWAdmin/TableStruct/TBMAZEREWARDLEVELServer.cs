@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_LEVELInfo : BaseStruct
         {
             public Byte ID;
-public Byte Level;
-public float Level_Value;
+            public Byte Level;
+            public float Level_Value;
 
 
             public override void beforeRead()

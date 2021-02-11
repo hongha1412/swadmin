@@ -26,12 +26,12 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_RANKInfo : BaseStruct
         {
             public Byte ID;
-public UInt32 Score_Min;
-public UInt32 Score_Max;
-public Byte Rank;
-public float EXP_Value;
-public float Money_Value;
-public float Share_Point_Value;
+            public UInt32 Score_Min;
+            public UInt32 Score_Max;
+            public Byte Rank;
+            public float EXP_Value;
+            public float Money_Value;
+            public float Share_Point_Value;
 
 
             public override void beforeRead()

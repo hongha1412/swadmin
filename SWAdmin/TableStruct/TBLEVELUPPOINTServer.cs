@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class LEVELUP_POINTInfo : BaseStruct
         {
             public Byte ID;
-public Byte Level;
-public Int32 Need_EXP;
-public Byte Give_Skill_Point;
-public UInt16 SV_Max_Point;
+            public Byte Level;
+            public Int32 Need_EXP;
+            public Byte Give_Skill_Point;
+            public UInt16 SV_Max_Point;
 
 
             public override void beforeRead()

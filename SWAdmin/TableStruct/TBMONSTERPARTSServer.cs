@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class MONSTER_PARTSInfo : BaseStruct
         {
             public UInt32 ID;
-public String Anim_File_String = "";
+            public String Anim_File_String = "";
 
 
             public override void beforeRead()

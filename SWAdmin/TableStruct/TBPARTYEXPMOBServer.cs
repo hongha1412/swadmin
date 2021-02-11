@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class PARTYEXP_MOBInfo : BaseStruct
         {
             public String Mob_LevelInterval_String = "";
-public float Mob_IntervalValue;
+            public float Mob_IntervalValue;
 
 
             public override void beforeRead()

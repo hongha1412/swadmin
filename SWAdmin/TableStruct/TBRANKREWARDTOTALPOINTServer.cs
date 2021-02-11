@@ -26,11 +26,11 @@ namespace SWAdmin.TableStruct
         public class RANK_REWARD_TOTALPOINTInfo : BaseStruct
         {
             public UInt16 Reward_Index;
-public Byte Ranking_Output_ID;
-public Byte Ranking_Reward_Division;
-public Byte Max_Ranking_Type;
-public UInt16 Max_Ranking;
-public UInt32 Ranking_Point_Value;
+            public Byte Ranking_Output_ID;
+            public Byte Ranking_Reward_Division;
+            public Byte Max_Ranking_Type;
+            public UInt16 Max_Ranking;
+            public UInt32 Ranking_Point_Value;
 
 
             public override void beforeRead()

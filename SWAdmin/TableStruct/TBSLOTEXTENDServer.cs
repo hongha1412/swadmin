@@ -26,11 +26,11 @@ namespace SWAdmin.TableStruct
         public class SLOT_EXTENDInfo : BaseStruct
         {
             public Int32 nAbilityPrice;
-public Byte byAbilitySlot;
-public Int32 nShapePrice;
-public Byte byShapeSlot;
-public Int32 nBankPrice;
-public Byte byBankSlot;
+            public Byte byAbilitySlot;
+            public Int32 nShapePrice;
+            public Byte byShapeSlot;
+            public Int32 nBankPrice;
+            public Byte byBankSlot;
 
 
             public override void beforeRead()

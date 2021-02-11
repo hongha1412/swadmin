@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class ITEM_SCRIPTInfo : BaseStruct
         {
             public UInt32 Item_Script_ID;
-public String Item_NameS_String = "";
+            public String Item_NameS_String = "";
 
 
             public override void beforeRead()

@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class AKASHIC_COMBINATIONInfo : BaseStruct
         {
             public Byte Combination_Rank;
-public UInt16 Combination_Need_Point;
-public UInt16 Combination_Success_Rate;
-public UInt32 Success_Group;
-public UInt32 Combination_Need_Zeny;
+            public UInt16 Combination_Need_Point;
+            public UInt16 Combination_Success_Rate;
+            public UInt32 Success_Group;
+            public UInt32 Combination_Need_Zeny;
 
 
             public override void beforeRead()

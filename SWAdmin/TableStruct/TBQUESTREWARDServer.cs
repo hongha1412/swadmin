@@ -26,14 +26,14 @@ namespace SWAdmin.TableStruct
         public class QUEST_REWARDInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt32 Item_PC_A;
-public UInt32 Item_PC_B;
-public UInt32 Item_PC_C;
-public UInt32 Item_PC_D;
-public UInt32 Item_PC_E;
-public UInt32 Item_PC_F;
-public UInt32 Item_PC_G;
-public UInt32 Item_PC_H;
+            public UInt32 Item_PC_A;
+            public UInt32 Item_PC_B;
+            public UInt32 Item_PC_C;
+            public UInt32 Item_PC_D;
+            public UInt32 Item_PC_E;
+            public UInt32 Item_PC_F;
+            public UInt32 Item_PC_G;
+            public UInt32 Item_PC_H;
 
 
             public override void beforeRead()

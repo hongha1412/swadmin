@@ -26,14 +26,14 @@ namespace SWAdmin.TableStruct
         public class MONSTER_BROKEN_PARTSInfo : BaseStruct
         {
             public UInt32 ID;
-public String Anim_File_String = "";
-public UInt32 Type;
-public UInt32 HP_Pct;
-public UInt32 Spawn_Monster_ID;
-public String Spawn_Ani_String = "";
-public UInt32 Link_Parts;
-public UInt32 Link_Monster_ID;
-public String Link_Monster_Parts_Ani_String = "";
+            public String Anim_File_String = "";
+            public UInt32 Type;
+            public UInt32 HP_Pct;
+            public UInt32 Spawn_Monster_ID;
+            public String Spawn_Ani_String = "";
+            public UInt32 Link_Parts;
+            public UInt32 Link_Monster_ID;
+            public String Link_Monster_Parts_Ani_String = "";
 
 
             public override void beforeRead()

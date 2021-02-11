@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class ITEM_LIMITInfo : BaseStruct
         {
             public UInt32 Limit_Item_ID;
-public UInt16 Limit_Cnt;
+            public UInt16 Limit_Cnt;
 
 
             public override void beforeRead()

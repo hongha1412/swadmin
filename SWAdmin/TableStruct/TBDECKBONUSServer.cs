@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class DECK_BONUSInfo : BaseStruct
         {
             public UInt16 Bonus_Index;
-public Byte Use_DeckPhase;
-public Byte Bonus_Type;
-public Byte Bonus_Need_Lv;
-public float Bonus_Value;
+            public Byte Use_DeckPhase;
+            public Byte Bonus_Type;
+            public Byte Bonus_Need_Lv;
+            public float Bonus_Value;
 
 
             public override void beforeRead()

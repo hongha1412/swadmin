@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class BROACH_SETInfo : BaseStruct
         {
             public UInt16 Broach_Set_Index;
-public String Broach_Option_Name_Ref_String = "";
-public UInt16 Broach_Set_Buff;
+            public String Broach_Option_Name_Ref_String = "";
+            public UInt16 Broach_Set_Buff;
 
 
             public override void beforeRead()

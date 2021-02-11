@@ -26,11 +26,11 @@ namespace SWAdmin.TableStruct
         public class ITEM_SIMILARGROUPInfo : BaseStruct
         {
             public UInt32 Group_Index;
-public UInt32 Similar_Item_01;
-public UInt32 Similar_Item_02;
-public UInt32 Similar_Item_03;
-public UInt32 Similar_Item_04;
-public UInt32 Similar_Item_05;
+            public UInt32 Similar_Item_01;
+            public UInt32 Similar_Item_02;
+            public UInt32 Similar_Item_03;
+            public UInt32 Similar_Item_04;
+            public UInt32 Similar_Item_05;
 
 
             public override void beforeRead()

@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_SOULVAPERInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt32 SoulVaper_Count;
-public UInt32 SoulVaper_Score;
+            public UInt32 SoulVaper_Count;
+            public UInt32 SoulVaper_Score;
 
 
             public override void beforeRead()

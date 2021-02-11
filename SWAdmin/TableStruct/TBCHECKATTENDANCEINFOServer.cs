@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class CHECK_ATTENDANCE_INFOInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 Check_Attendance_Type;
-public UInt32 Check_Attendance_Num;
+            public UInt32 Check_Attendance_Type;
+            public UInt32 Check_Attendance_Num;
 
 
             public override void beforeRead()

@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class PARTYEXP_LEVELInfo : BaseStruct
         {
             public Byte Party_LevelInterval;
-public float LevelInterval_Value;
+            public float LevelInterval_Value;
 
 
             public override void beforeRead()

@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class SPAWNBOX_RSQUARE_01Info : BaseStruct
         {
             public Byte ID;
-public UInt16 SpawnBox_ID;
-public UInt32 Monster_ID;
-public Byte Monster_Count;
-public UInt32 NextSpawn_Deley;
+            public UInt16 SpawnBox_ID;
+            public UInt32 Monster_ID;
+            public Byte Monster_Count;
+            public UInt32 NextSpawn_Deley;
 
 
             public override void beforeRead()

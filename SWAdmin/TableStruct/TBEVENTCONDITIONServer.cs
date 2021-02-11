@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class EVENT_CONDITIONInfo : BaseStruct
         {
             public UInt32 Event_Condition_ID;
-public Byte Condition_Type;
-public Byte Target_Type;
-public UInt32 Target_ID;
-public UInt32 Finish_Count;
+            public Byte Condition_Type;
+            public Byte Target_Type;
+            public UInt32 Target_ID;
+            public UInt32 Finish_Count;
 
 
             public override void beforeRead()

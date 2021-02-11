@@ -29,7 +29,8 @@ namespace SWAdmin
                         {
                             arrDr[0][i] = other.Rows[rIndex][i];
                         }
-                    } else
+                    }
+                    else
                     {
                         arrDr[0][cIndex] = other.Rows[rIndex][cIndex];
                     }
@@ -38,17 +39,34 @@ namespace SWAdmin
                 Application.DoEvents();
             }
         }
-        public static void FromCsv(this DataTable dtDataTable, string strFilePath)
+        public static void FromCsv(this DataTable dtDataTable, string strFilePath, SplashScreenManager splashScreenManager)
         {
             StreamReader sr = new StreamReader(strFilePath);
-            string[] headers = sr.ReadLine().Split(',');
-            int rIndex = 0;
+            string[] headers = sr.ReadLine().Split('\t');
+            int count = File.ReadLines(strFilePath).Count();
+            int lIndex = 1;
+            Dictionary<string, List<int>> dataMap = new Dictionary<string, List<int>>();
+            string idValue;
+            for (int i = 0; i < dtDataTable.Rows.Count; i++)
+            {
+                idValue = dtDataTable.Rows[i][0].ToString();
+                if (!dataMap.ContainsKey(idValue))
+                {
+                    dataMap.Add(idValue, new List<int>());
+                }
+                dataMap[idValue].Add(i);
+            }
+
             while (!sr.EndOfStream)
             {
-                string[] rows = sr.ReadLine().Split(',');
+                string[] rows = sr.ReadLine().Split('\t');
                 for (int i = 0, j = 0; i < headers.Length; i++)
                 {
                     if (string.IsNullOrEmpty(headers[i]) && string.IsNullOrEmpty(rows[i]))
+                    {
+                        continue;
+                    }
+                    if (!dataMap.ContainsKey(rows[0]))
                     {
                         continue;
                     }
@@ -60,18 +78,13 @@ namespace SWAdmin
                     {
                         continue;
                     }
-                    if (rIndex >= dtDataTable.Rows.Count)//大于就新增行
-                    {
-                        DataRow NewLine = dtDataTable.NewRow();
-                        dtDataTable.Rows.Add(NewLine);
-                        dtDataTable.Rows[rIndex][j++] = rows[i];
-                    }
-                    else
+                    foreach (int rIndex in dataMap[rows[0]])
                     {
                         dtDataTable.Rows[rIndex][j++] = rows[i];
                     }
                 }
-                rIndex++;
+                splashScreenManager.SetWaitFormDescription(lIndex++ + "/" + count);
+                Application.DoEvents();
             }
         }
         public static void FromTxtTrans(this DataTable dtDataTable, string strFilePath, SplashScreenManager splashScreenManager)
@@ -183,7 +196,7 @@ namespace SWAdmin
                 sw.Write(dtDataTable.Columns[i]);
                 if (i < dtDataTable.Columns.Count - 1)
                 {
-                    sw.Write(",");
+                    sw.Write("\t");
                 }
             }
             sw.Write(sw.NewLine);
@@ -203,15 +216,11 @@ namespace SWAdmin
                             //value = value.Replace("\n", "<br>");
                             value = Regex.Replace(value, "(\n)", "<br>");
                         }
-                        if (value.Contains(','))
-                        {
-                            value = String.Format("\"{0}\"", value);
-                        }
                         sw.Write(value);
                     }
                     if (i < dtDataTable.Columns.Count - 1)
                     {
-                        sw.Write(",");
+                        sw.Write("\t");
                     }
                 }
                 sw.Write(sw.NewLine);

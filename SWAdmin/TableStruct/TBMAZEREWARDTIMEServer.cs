@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_TIMEInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt16 Time_Value_Min;
-public UInt16 Time_Value_Max;
-public float ClearTime_Value;
+            public UInt16 Time_Value_Min;
+            public UInt16 Time_Value_Max;
+            public float ClearTime_Value;
 
 
             public override void beforeRead()

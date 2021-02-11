@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class TITLE_STRINGInfo : BaseStruct
         {
             public UInt32 Title_ID;
-public String Title_Name_String = "";
+            public String Title_Name_String = "";
 
 
             public override void beforeRead()

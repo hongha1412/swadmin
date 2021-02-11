@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class POLLENInfo : BaseStruct
         {
             public UInt32 Pollen_Index;
-public UInt32 Pollen_Extend_Item_ID;
-public UInt32 Pollen_Effect_Type;
-public UInt32 Pollen_Effect_Value;
-public UInt32 Pollen_Help_Ani_Time;
+            public UInt32 Pollen_Extend_Item_ID;
+            public UInt32 Pollen_Effect_Type;
+            public UInt32 Pollen_Effect_Value;
+            public UInt32 Pollen_Help_Ani_Time;
 
 
             public override void beforeRead()

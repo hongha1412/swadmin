@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class ACHIEVEMENT_BEGINInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt32 Achievement_ID;
-public Byte Achievement_Open_Lv;
+            public UInt32 Achievement_ID;
+            public Byte Achievement_Open_Lv;
 
 
             public override void beforeRead()

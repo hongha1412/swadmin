@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class DROPRATE_MEMBERInfo : BaseStruct
         {
             public Byte DropRate_Party_Member;
-public float DropRate_Member_Value;
+            public float DropRate_Member_Value;
 
 
             public override void beforeRead()

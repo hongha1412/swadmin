@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class RANK_INFOInfo : BaseStruct
         {
             public UInt16 Ranking_Index;
-public Byte Ranking_Category;
-public Byte Ranking_Total_Type;
-public Byte Ranking_Total_Class_Type;
-public UInt16 Ranking_Visible;
-public Byte Ranking_Reward_Receive;
-public UInt32 Ranking_Reward;
-public UInt32 Ranking_Maze;
+            public Byte Ranking_Category;
+            public Byte Ranking_Total_Type;
+            public Byte Ranking_Total_Class_Type;
+            public UInt16 Ranking_Visible;
+            public Byte Ranking_Reward_Receive;
+            public UInt32 Ranking_Reward;
+            public UInt32 Ranking_Maze;
 
 
             public override void beforeRead()

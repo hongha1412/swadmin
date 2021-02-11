@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class HELPERInfo : BaseStruct
         {
             public UInt32 ID;
-public Byte Helper_Number;
+            public Byte Helper_Number;
 
 
             public override void beforeRead()

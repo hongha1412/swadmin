@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class PARTYEXP_MEMBERInfo : BaseStruct
         {
             public Byte Party_Member_ID;
-public Byte Party_Member;
-public Byte Friend_Value;
-public UInt16 Booster_ID;
+            public Byte Party_Member;
+            public Byte Friend_Value;
+            public UInt16 Booster_ID;
 
 
             public override void beforeRead()

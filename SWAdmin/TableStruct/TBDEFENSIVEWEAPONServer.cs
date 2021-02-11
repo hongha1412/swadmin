@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class DEFENSIVE_WEAPONInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 Monster_ID;
+            public UInt32 Monster_ID;
 
 
             public override void beforeRead()

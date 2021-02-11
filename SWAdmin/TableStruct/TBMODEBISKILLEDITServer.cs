@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class MODE_BI_SKILL_EDITInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 BI_Skill_Cooltime;
+            public UInt32 BI_Skill_Cooltime;
 
 
             public override void beforeRead()

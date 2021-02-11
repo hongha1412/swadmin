@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class MILEAGEInfo : BaseStruct
         {
             public UInt32 Mileage_ID;
-public UInt16 Mileage_Point_01;
-public UInt16 Mileage_Point_02;
-public UInt16 Mileage_Point_03;
+            public UInt16 Mileage_Point_01;
+            public UInt16 Mileage_Point_02;
+            public UInt16 Mileage_Point_03;
 
 
             public override void beforeRead()

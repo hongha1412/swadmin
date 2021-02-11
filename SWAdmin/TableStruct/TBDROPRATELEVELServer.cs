@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class DROPRATE_LEVELInfo : BaseStruct
         {
             public Byte DropRate_Party_LevelInterval;
-public float DropRate_LevelInterval_Value;
+            public float DropRate_LevelInterval_Value;
 
 
             public override void beforeRead()
