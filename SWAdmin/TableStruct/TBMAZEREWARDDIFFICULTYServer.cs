@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_DIFFICULTYInfo : BaseStruct
         {
             public Byte ID;
-public Byte Difficulty;
-public float Difficulty_Value;
+            public Byte Difficulty;
+            public float Difficulty_Value;
 
 
             public override void beforeRead()

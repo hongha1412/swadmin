@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class DROPRATE_MOBInfo : BaseStruct
         {
             public Byte DropRate_Mob_LevelInterval;
-public float DropRate_MobInterval_Value;
+            public float DropRate_MobInterval_Value;
 
 
             public override void beforeRead()

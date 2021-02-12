@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class ITEM_RANK_RATEInfo : BaseStruct
         {
             public Byte Item_Rank_Value;
-public float Item_Rank_Rate;
+            public float Item_Rank_Rate;
 
 
             public override void beforeRead()

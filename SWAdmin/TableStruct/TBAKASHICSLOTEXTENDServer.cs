@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class AKASHIC_SLOT_EXTENDInfo : BaseStruct
         {
             public Byte Extend_Index;
-public UInt32 Extend_Akashic_Need_Item_ID;
-public Byte Extend_Akashic_Need_Item_Num;
+            public UInt32 Extend_Akashic_Need_Item_ID;
+            public Byte Extend_Akashic_Need_Item_Num;
 
 
             public override void beforeRead()

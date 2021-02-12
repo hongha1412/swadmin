@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class CREATE_CLOTHInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt32 Item_ID_Head;
-public UInt32 Item_ID_Body;
-public UInt32 Item_ID_Hands;
-public UInt32 Item_ID_Stocking;
-public UInt32 Item_ID_Foot;
-public UInt32 Item_ID_Pants;
-public String Icon_FileName_String = "";
+            public UInt32 Item_ID_Head;
+            public UInt32 Item_ID_Body;
+            public UInt32 Item_ID_Hands;
+            public UInt32 Item_ID_Stocking;
+            public UInt32 Item_ID_Foot;
+            public UInt32 Item_ID_Pants;
+            public String Icon_FileName_String = "";
 
 
             public override void beforeRead()

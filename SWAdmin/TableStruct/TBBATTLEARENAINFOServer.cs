@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class BATTLE_ARENA_INFOInfo : BaseStruct
         {
             public UInt16 ID;
-public Byte Contents_Type;
-public UInt32 Contents_ID;
-public UInt16 Maze_ID;
+            public Byte Contents_Type;
+            public UInt32 Contents_ID;
+            public UInt16 Maze_ID;
 
 
             public override void beforeRead()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBCashShopTabServer: BaseStruct
+    public class TBCashShopTabServer : BaseStruct
     {
         public CashTabShopInfo[] lsData;
         public SWString md5_ = new SWString();

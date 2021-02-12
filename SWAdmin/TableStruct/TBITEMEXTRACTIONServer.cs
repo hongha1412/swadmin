@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class ITEM_EXTRACTIONInfo : BaseStruct
         {
             public UInt32 Item_ID;
-public UInt32 Extraction_gold;
+            public UInt32 Extraction_gold;
 
 
             public override void beforeRead()

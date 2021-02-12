@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class CHECK_ATTENDANCE_STREAKInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 Check_Attendance_Type;
-public UInt32 Attendance_Streak_Reward_1day;
-public UInt32 Attendance_Streak_Reward_2day;
-public UInt32 Attendance_Streak_Reward_3day;
-public UInt32 Attendance_Streak_Reward_1day_Value;
-public UInt32 Attendance_Streak_Reward_2day_Value;
-public UInt32 Attendance_Streak_Reward_3day_Value;
+            public UInt32 Check_Attendance_Type;
+            public UInt32 Attendance_Streak_Reward_1day;
+            public UInt32 Attendance_Streak_Reward_2day;
+            public UInt32 Attendance_Streak_Reward_3day;
+            public UInt32 Attendance_Streak_Reward_1day_Value;
+            public UInt32 Attendance_Streak_Reward_2day_Value;
+            public UInt32 Attendance_Streak_Reward_3day_Value;
 
 
             public override void beforeRead()

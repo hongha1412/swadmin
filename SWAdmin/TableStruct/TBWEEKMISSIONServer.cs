@@ -26,16 +26,16 @@ namespace SWAdmin.TableStruct
         public class WEEK_MISSIONInfo : BaseStruct
         {
             public UInt16 week_mission_id;
-public Byte Mission_Group_ID;
-public Byte mission_type;
-public UInt16 target_id;
-public Byte complete_value;
-public UInt32 reward_item_id_1;
-public UInt32 reward_item_id_2;
-public UInt32 reward_item_id_3;
-public UInt32 reward_count_1;
-public UInt32 reward_count_2;
-public UInt32 reward_count_3;
+            public Byte Mission_Group_ID;
+            public Byte mission_type;
+            public UInt16 target_id;
+            public Byte complete_value;
+            public UInt32 reward_item_id_1;
+            public UInt32 reward_item_id_2;
+            public UInt32 reward_item_id_3;
+            public UInt32 reward_count_1;
+            public UInt32 reward_count_2;
+            public UInt32 reward_count_3;
 
 
             public override void beforeRead()

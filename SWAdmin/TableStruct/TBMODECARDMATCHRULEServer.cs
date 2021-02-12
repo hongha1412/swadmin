@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class MODE_CARDMATCH_RULEInfo : BaseStruct
         {
             public UInt32 CardMatch_ID;
-public UInt32 Win_Reward;
-public UInt32 Lose_Reward;
+            public UInt32 Win_Reward;
+            public UInt32 Lose_Reward;
 
 
             public override void beforeRead()

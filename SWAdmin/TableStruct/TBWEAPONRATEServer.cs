@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class WEAPON_RATEInfo : BaseStruct
         {
             public Byte Weapon_Mob_Levelinterval;
-public float Weapon_Mob_Applyrate;
+            public float Weapon_Mob_Applyrate;
 
 
             public override void beforeRead()

@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class PC_AKASHICInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 Akashic_ID;
+            public UInt32 Akashic_ID;
 
 
             public override void beforeRead()

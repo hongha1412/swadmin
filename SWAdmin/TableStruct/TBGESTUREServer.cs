@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class GESTUREInfo : BaseStruct
         {
             public UInt16 Gesture_ID;
-public Byte Use_Class;
-public Byte Req_Min_Level;
-public Byte InitialGesture;
-public UInt32 CoolTime;
-public UInt16 CoolTime_Global;
-public Byte Gesture_Type;
-public UInt16 Gesture_Gain_Type;
+            public Byte Use_Class;
+            public Byte Req_Min_Level;
+            public Byte InitialGesture;
+            public UInt32 CoolTime;
+            public UInt16 CoolTime_Global;
+            public Byte Gesture_Type;
+            public UInt16 Gesture_Gain_Type;
 
 
             public override void beforeRead()

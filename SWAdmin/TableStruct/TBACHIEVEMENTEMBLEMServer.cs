@@ -26,12 +26,12 @@ namespace SWAdmin.TableStruct
         public class ACHIEVEMENT_EMBLEMInfo : BaseStruct
         {
             public UInt16 ID;
-public Byte Achievement_Category;
-public UInt16 Achievement_Rate_1;
-public UInt16 Achievement_Rate_2;
-public UInt16 Achievement_Rate_Min_3;
-public UInt16 Achievement_Rate_Min_4;
-public UInt16 Achievement_Rate_Min_5;
+            public Byte Achievement_Category;
+            public UInt16 Achievement_Rate_1;
+            public UInt16 Achievement_Rate_2;
+            public UInt16 Achievement_Rate_Min_3;
+            public UInt16 Achievement_Rate_Min_4;
+            public UInt16 Achievement_Rate_Min_5;
 
 
             public override void beforeRead()

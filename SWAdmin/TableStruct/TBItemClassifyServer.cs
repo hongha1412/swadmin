@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SWAdmin.TableStruct
 {
-    public class TBItemClassifyServer: BaseStruct
+    public class TBItemClassifyServer : BaseStruct
     {
         public ItemClassifyInfo[] lsData;
         public SWString md5_ = new SWString();

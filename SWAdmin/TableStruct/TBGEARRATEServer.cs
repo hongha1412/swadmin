@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class GEAR_RATEInfo : BaseStruct
         {
             public Byte Gear_Mob_Levelinterval;
-public float Gear_Mob_Applyrate;
+            public float Gear_Mob_Applyrate;
 
 
             public override void beforeRead()

@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class MONSTER_WEAPONInfo : BaseStruct
         {
             public UInt16 ID;
-public String Weapon_Mesh_Change_Name_String = "";
-public UInt32 Weapon_HP;
-public UInt32 Weapon_HP_Value_01;
-public UInt32 Weapon_HP_Value_02;
-public UInt32 Weapon_HP_Value_03;
-public UInt32 Weapon_HP_Value_04;
-public UInt32 Weapon_HP_Value_05;
+            public String Weapon_Mesh_Change_Name_String = "";
+            public UInt32 Weapon_HP;
+            public UInt32 Weapon_HP_Value_01;
+            public UInt32 Weapon_HP_Value_02;
+            public UInt32 Weapon_HP_Value_03;
+            public UInt32 Weapon_HP_Value_04;
+            public UInt32 Weapon_HP_Value_05;
 
 
             public override void beforeRead()

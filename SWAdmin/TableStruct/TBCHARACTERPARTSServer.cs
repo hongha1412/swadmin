@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class CHARACTER_PARTSInfo : BaseStruct
         {
             public UInt16 ID;
-public Byte Parts_Position;
+            public Byte Parts_Position;
 
 
             public override void beforeRead()

@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class ROOMRANK_REWARDInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt16 Min_Ranking;
-public UInt16 Max_Ranking;
-public Byte Item_Amount_01;
-public Byte Item_Amount_02;
+            public UInt16 Min_Ranking;
+            public UInt16 Max_Ranking;
+            public Byte Item_Amount_01;
+            public Byte Item_Amount_02;
 
 
             public override void beforeRead()

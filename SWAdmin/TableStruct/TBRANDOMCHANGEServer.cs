@@ -26,14 +26,14 @@ namespace SWAdmin.TableStruct
         public class RANDOM_CHANGEInfo : BaseStruct
         {
             public UInt32 Option_Change_ID;
-public Byte Max_Change_Cnt;
-public UInt32 Need_Item;
-public UInt16 Need_BP;
-public Byte Needitem_Cnt1;
-public Byte Needitem_Cnt2;
-public Byte Needitem_Cnt3;
-public Byte Needitem_Cnt4;
-public Byte Needitem_Cnt5;
+            public Byte Max_Change_Cnt;
+            public UInt32 Need_Item;
+            public UInt16 Need_BP;
+            public Byte Needitem_Cnt1;
+            public Byte Needitem_Cnt2;
+            public Byte Needitem_Cnt3;
+            public Byte Needitem_Cnt4;
+            public Byte Needitem_Cnt5;
 
 
             public override void beforeRead()

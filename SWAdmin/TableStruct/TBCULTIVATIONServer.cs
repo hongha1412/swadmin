@@ -26,17 +26,17 @@ namespace SWAdmin.TableStruct
         public class CULTIVATIONInfo : BaseStruct
         {
             public UInt32 Seed_Item_ID;
-public UInt32 Crops_Item_ID;
-public UInt32 Crops_Item_Num;
-public UInt32 Cultivation_Bonus_Rate;
-public UInt32 Crops_Bonus_Item_Num;
-public UInt32 Cultivation_Time;
-public UInt32 Cultivation_Boost_Time;
-public UInt32 Wilt_Item_ID;
-public UInt32 Wilt_Item_ID_Num;
-public UInt32 Decay_Item_ID;
-public UInt32 Decay_Item_ID_Num;
-public UInt32 Auto_Usage_Item;
+            public UInt32 Crops_Item_ID;
+            public UInt32 Crops_Item_Num;
+            public UInt32 Cultivation_Bonus_Rate;
+            public UInt32 Crops_Bonus_Item_Num;
+            public UInt32 Cultivation_Time;
+            public UInt32 Cultivation_Boost_Time;
+            public UInt32 Wilt_Item_ID;
+            public UInt32 Wilt_Item_ID_Num;
+            public UInt32 Decay_Item_ID;
+            public UInt32 Decay_Item_ID_Num;
+            public UInt32 Auto_Usage_Item;
 
 
             public override void beforeRead()

@@ -26,13 +26,13 @@ namespace SWAdmin.TableStruct
         public class ITEM_TITLE_VALUEInfo : BaseStruct
         {
             public UInt32 Item_Title_ID;
-public String UI_String_String = "";
-public Byte Additional_Option0_Type;
-public Byte Additional_Option1_Type;
-public Byte Additional_Option2_Type;
-public Int16 Increase_Default_Value0;
-public Int16 Additional_Option_Value1;
-public Int16 Additional_Option_Value2;
+            public String UI_String_String = "";
+            public Byte Additional_Option0_Type;
+            public Byte Additional_Option1_Type;
+            public Byte Additional_Option2_Type;
+            public Int16 Increase_Default_Value0;
+            public Int16 Additional_Option_Value1;
+            public Int16 Additional_Option_Value2;
 
 
             public override void beforeRead()

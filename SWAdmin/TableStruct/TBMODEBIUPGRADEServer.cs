@@ -26,12 +26,12 @@ namespace SWAdmin.TableStruct
         public class MODE_BI_UPGRADEInfo : BaseStruct
         {
             public UInt32 ID;
-public Byte Upgrade_Class;
-public Byte Upgrade_Skill_Fix_Type;
-public UInt32 Upgrade_Type;
-public UInt32 Upgrade_Value;
-public UInt32 Upgrade_Cost_Item;
-public UInt32 Upgrade_Cost;
+            public Byte Upgrade_Class;
+            public Byte Upgrade_Skill_Fix_Type;
+            public UInt32 Upgrade_Type;
+            public UInt32 Upgrade_Value;
+            public UInt32 Upgrade_Cost_Item;
+            public UInt32 Upgrade_Cost;
 
 
             public override void beforeRead()

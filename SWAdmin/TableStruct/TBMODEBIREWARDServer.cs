@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class MODE_BI_REWARDInfo : BaseStruct
         {
             public Byte ID;
-public UInt16 BI_Reward_Coin_Value;
-public UInt32 BI_Reward_Item;
-public UInt32 BI_Reward_Item_Value;
+            public UInt16 BI_Reward_Coin_Value;
+            public UInt32 BI_Reward_Item;
+            public UInt32 BI_Reward_Item_Value;
 
 
             public override void beforeRead()

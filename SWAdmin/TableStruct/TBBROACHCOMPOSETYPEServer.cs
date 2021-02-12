@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class BROACHCOMPOSE_TYPEInfo : BaseStruct
         {
             public UInt16 Broach_Rank_Value;
-public UInt16 Result_Type_Attack;
-public UInt16 Result_Type_Defence;
-public UInt16 Result_Type_Function;
+            public UInt16 Result_Type_Attack;
+            public UInt16 Result_Type_Defence;
+            public UInt16 Result_Type_Function;
 
 
             public override void beforeRead()

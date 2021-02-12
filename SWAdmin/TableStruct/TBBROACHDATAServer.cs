@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class BROACHDATAInfo : BaseStruct
         {
             public UInt32 Broach_Index;
-public UInt32 Broach_ID;
-public Byte Broach_Type_Value;
-public Byte Broach_Rank_Value;
-public Byte Broach_Max_Cnt;
+            public UInt32 Broach_ID;
+            public Byte Broach_Type_Value;
+            public Byte Broach_Rank_Value;
+            public Byte Broach_Max_Cnt;
 
 
             public override void beforeRead()

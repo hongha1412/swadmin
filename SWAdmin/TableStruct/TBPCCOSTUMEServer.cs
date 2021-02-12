@@ -26,7 +26,7 @@ namespace SWAdmin.TableStruct
         public class PC_COSTUMEInfo : BaseStruct
         {
             public UInt32 ID;
-public UInt32 Item_ID;
+            public UInt32 Item_ID;
 
 
             public override void beforeRead()

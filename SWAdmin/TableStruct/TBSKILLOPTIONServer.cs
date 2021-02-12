@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class SKILL_OPTIONInfo : BaseStruct
         {
             public UInt32 Skill_Option_ID;
-public UInt32 Skill_Group_ID;
-public Int16 Skill_Option_Flag;
+            public UInt32 Skill_Group_ID;
+            public Int16 Skill_Option_Flag;
 
 
             public override void beforeRead()

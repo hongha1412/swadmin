@@ -31,7 +31,7 @@ namespace SWAdmin.TableStruct
         {
             public UInt32 ID;
             public UInt32 Complete_Bit;
-            public String Name ="";
+            public String Name = "";
             public UInt32 Chapter_ID;
             public Byte Contents_Type;
             public Byte Progress_Type;
@@ -92,7 +92,7 @@ namespace SWAdmin.TableStruct
             public UInt32 Remove_Item_Count_03;
             public UInt32 Remove_Item_Count_04;
             public UInt32 Remove_Item_Count_05;
-            public String Quest_Script_Name ="";
+            public String Quest_Script_Name = "";
             public Byte Episode_Reward_Type;
             public UInt32 Reward_EXP;
             public UInt32 Reward_Money;

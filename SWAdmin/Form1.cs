@@ -24,7 +24,7 @@ namespace SWAdmin
 {
     public partial class Form1 : DevExpress.XtraBars.TabForm
     {
-        private bool _reChecksumOnUpdate = false; 
+        private bool _reChecksumOnUpdate = false;
         Dictionary<string, BaseStruct> _supportedFiles;
         Dictionary<string, DataTable> _dataTable;
         private string _currentResPath;
@@ -116,9 +116,10 @@ namespace SWAdmin
                         {
                             this.splashScreenManager.ShowWaitForm();
                             string filename = this.xtraOpenFileDialog.FileName;
-                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromCsv(filename);
+                            this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromCsv(filename, this.splashScreenManager);
                             XtraMessageBox.Show("Data imported");
-                        } finally
+                        }
+                        finally
                         {
                             this.splashScreenManager.CloseWaitForm();
                         }
@@ -179,11 +180,12 @@ namespace SWAdmin
                             catch (Exception) { }
                             this._dataTable[lbRes.SelectedItem.ToString().ToLower()].FromRes(this.ReadResFile(filename, false), cIndex, this.splashScreenManager);
                             XtraMessageBox.Show("Data imported");
-                        } finally
+                        }
+                        finally
                         {
                             this.splashScreenManager.CloseWaitForm();
                         }
-                }
+                    }
                 };
                 _exportMenu.Items.Add(toCsv);
                 _exportMenu.Items.Add(toTxtPlain);
@@ -468,9 +470,11 @@ namespace SWAdmin
             _supportedFiles.Add("tb_akashic_records.res", new TBAkashicRecordsClient());
             _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeClient());
             _supportedFiles.Add("tb_buff.res", new TBBuffClient());
+            _supportedFiles.Add("tb_random_get.res", new TBRandomGetClient());
         }
-        string ToLow(string input) {
-           return input.ToString().ToLower();
+        string ToLow(string input)
+        {
+            return input.ToString().ToLower();
         }
         void OnOuterFormCreating(object sender, OuterFormCreatingEventArgs e)
         {
@@ -505,7 +509,8 @@ namespace SWAdmin
                 this._currentWork = arg.WorkerType;
                 this._gridMenu = null;
                 this.LoadResDir(arg.WorkerType, arg.WorkerType == WorkerTypeEnum.LOAD_SERVER_RES ? txtServerRes.Text : txtClientRes.Text);
-            } else if (arg.WorkerType == WorkerTypeEnum.LOAD_RES)
+            }
+            else if (arg.WorkerType == WorkerTypeEnum.LOAD_RES)
             {
                 this.LoadResData(arg.ArgValue.ToString());
                 this.CreateGridMenu();
@@ -514,10 +519,12 @@ namespace SWAdmin
                 {
                     _gridMenu[0].Items.RemoveAt(_gridMenu[0].Items.Count - 1);
                 }
-            } else if (arg.WorkerType == WorkerTypeEnum.SAVE_RES)
+            }
+            else if (arg.WorkerType == WorkerTypeEnum.SAVE_RES)
             {
                 this.SaveResData();
-            } else if (arg.WorkerType == WorkerTypeEnum.TRANSLATE)
+            }
+            else if (arg.WorkerType == WorkerTypeEnum.TRANSLATE)
             {
             }
             if (this.splashScreenManager.IsSplashFormVisible)
@@ -545,7 +552,8 @@ namespace SWAdmin
                 try
                 {
                     reader.readObject(structdata);
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     XtraMessageBox.Show(ex.Message);
                 }
@@ -838,7 +846,7 @@ namespace SWAdmin
                     originalChecksum = -1;
                     break;
             }
-            
+
             return originalChecksum;
         }
 
@@ -951,7 +959,8 @@ namespace SWAdmin
                         XtraMessageBox.Show(ex.Message);
                     }
                     return true;
-                } else if (keyData == (Keys.Control | Keys.R))
+                }
+                else if (keyData == (Keys.Control | Keys.R))
                 {
                     FileInfo fi = new FileInfo(Path.Combine(_currentResPath, lbRes.SelectedItem.ToString()));
                     _dataTable.Remove(fi.Name.ToLower());
@@ -974,7 +983,7 @@ namespace SWAdmin
                 XtraMessageBox.Show("Data not found");
                 return;
             }
-            GridView view = (GridView) gridControl1.FocusedView;
+            GridView view = (GridView)gridControl1.FocusedView;
             string selectedValue = view.FocusedValue.ToString();
             view.SetFocusedValue(Translator.translate(selectedValue));
         }

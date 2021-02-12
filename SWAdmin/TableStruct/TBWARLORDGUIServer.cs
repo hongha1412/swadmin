@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class WARLORD_GUIInfo : BaseStruct
         {
             public UInt16 ID;
-public Byte Jump_Type;
-public UInt32 Jump_StartBox_ID;
+            public Byte Jump_Type;
+            public UInt32 Jump_StartBox_ID;
 
 
             public override void beforeRead()

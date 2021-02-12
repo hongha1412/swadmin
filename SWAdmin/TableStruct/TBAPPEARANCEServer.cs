@@ -26,9 +26,9 @@ namespace SWAdmin.TableStruct
         public class APPEARANCEInfo : BaseStruct
         {
             public UInt32 Appearance_ID;
-public Byte Appearance_Classify;
-public Byte Appearance_Type;
-public Byte Appearance_Class;
+            public Byte Appearance_Classify;
+            public Byte Appearance_Type;
+            public Byte Appearance_Class;
 
 
             public override void beforeRead()

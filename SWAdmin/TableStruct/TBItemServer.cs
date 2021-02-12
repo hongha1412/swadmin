@@ -15,22 +15,22 @@ namespace SWAdmin.TableStruct
 
         public override void beforeRead()
         {
-            
+
         }
 
         public override void beforeWrite()
         {
-            
+
         }
 
         public override void read(SWReader reader)
         {
-            
+
         }
 
         public override void write(SWWriter writer)
         {
-            
+
         }
 
         public class ItemInfo : BaseStruct
@@ -103,22 +103,22 @@ namespace SWAdmin.TableStruct
 
             public override void beforeRead()
             {
-                
+
             }
 
             public override void beforeWrite()
             {
-                
+
             }
 
             public override void read(SWReader reader)
             {
-                
+
             }
 
             public override void write(SWWriter writer)
             {
-                
+
             }
         }
     }

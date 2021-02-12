@@ -26,14 +26,14 @@ namespace SWAdmin.TableStruct
         public class TITLE_REWARDInfo : BaseStruct
         {
             public UInt32 Title_Reward_ID;
-public UInt32 Title_ID_01;
-public UInt32 Title_ID_02;
-public UInt32 Title_ID_03;
-public UInt32 Title_ID_04;
-public UInt32 Title_ID_05;
-public UInt32 Title_ID_06;
-public UInt32 Title_ID_07;
-public UInt32 Title_ID_08;
+            public UInt32 Title_ID_01;
+            public UInt32 Title_ID_02;
+            public UInt32 Title_ID_03;
+            public UInt32 Title_ID_04;
+            public UInt32 Title_ID_05;
+            public UInt32 Title_ID_06;
+            public UInt32 Title_ID_07;
+            public UInt32 Title_ID_08;
 
 
             public override void beforeRead()

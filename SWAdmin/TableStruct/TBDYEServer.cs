@@ -26,11 +26,11 @@ namespace SWAdmin.TableStruct
         public class DYEInfo : BaseStruct
         {
             public UInt16 Dye_ID;
-public Byte Icon_Dye_Color_R;
-public Byte Icon_Dye_Color_G;
-public Byte Icon_Dye_Color_B;
-public Byte Hidden_Info;
-public String Color_Hex_String = "";
+            public Byte Icon_Dye_Color_R;
+            public Byte Icon_Dye_Color_G;
+            public Byte Icon_Dye_Color_B;
+            public Byte Hidden_Info;
+            public String Color_Hex_String = "";
 
 
             public override void beforeRead()

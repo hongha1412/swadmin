@@ -26,12 +26,12 @@ namespace SWAdmin.TableStruct
         public class WORLD_EVENT_REWARDInfo : BaseStruct
         {
             public UInt32 world_reward_ID;
-public Byte world_reward_type;
-public UInt16 event_item_percentile_min;
-public UInt16 event_item_percentile_max;
-public Byte event_reward_type;
-public UInt32 event_reward_value;
-public UInt16 event_reward_item_amount;
+            public Byte world_reward_type;
+            public UInt16 event_item_percentile_min;
+            public UInt16 event_item_percentile_max;
+            public Byte event_reward_type;
+            public UInt32 event_reward_value;
+            public UInt16 event_reward_item_amount;
 
 
             public override void beforeRead()

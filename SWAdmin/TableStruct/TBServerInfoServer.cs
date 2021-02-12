@@ -30,7 +30,7 @@ namespace SWAdmin.TableStruct
         public class TBServerInfo : BaseStruct
         {
             public UInt32 Server_Index;
-            public String Server_Name="";
+            public String Server_Name = "";
             public Byte Server_Type;
             public Byte PVP_Enable;
 

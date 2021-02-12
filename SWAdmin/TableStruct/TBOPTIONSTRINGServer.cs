@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class OPTION_STRINGInfo : BaseStruct
         {
             public UInt16 Option_Name_ID;
-public Byte EffectType;
-public UInt16 Effect_Num;
-public String UI_String_String = "";
-public Byte Output_Type;
+            public Byte EffectType;
+            public UInt16 Effect_Num;
+            public String UI_String_String = "";
+            public Byte Output_Type;
 
 
             public override void beforeRead()

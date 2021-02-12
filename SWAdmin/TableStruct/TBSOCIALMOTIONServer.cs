@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class SOCIAL_MOTIONInfo : BaseStruct
         {
             public UInt16 ID;
-public UInt16 Social_Item_ID;
-public Byte Class_Type;
+            public UInt16 Social_Item_ID;
+            public Byte Class_Type;
 
 
             public override void beforeRead()

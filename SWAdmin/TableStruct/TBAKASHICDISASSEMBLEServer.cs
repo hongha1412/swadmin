@@ -26,10 +26,10 @@ namespace SWAdmin.TableStruct
         public class AKASHIC_DISASSEMBLEInfo : BaseStruct
         {
             public UInt32 Dis_Index;
-public UInt16 Dis_Rate;
-public UInt32 Dis_Item;
-public Byte Dis_CostType;
-public UInt32 Cost_Value;
+            public UInt16 Dis_Rate;
+            public UInt32 Dis_Item;
+            public Byte Dis_CostType;
+            public UInt32 Cost_Value;
 
 
             public override void beforeRead()

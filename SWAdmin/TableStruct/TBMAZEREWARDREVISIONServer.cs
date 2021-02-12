@@ -26,8 +26,8 @@ namespace SWAdmin.TableStruct
         public class MAZEREWARD_REVISIONInfo : BaseStruct
         {
             public UInt16 Character_ID;
-public float Revision_Value;
-public float Revision_Value_Thething;
+            public float Revision_Value;
+            public float Revision_Value_Thething;
 
 
             public override void beforeRead()
