@@ -118,6 +118,7 @@
     <Compile Include="TableStruct\Client\TBAkashicMakeClient.cs" />
     <Compile Include="TableStruct\Client\TBAkashicRecordsClient.cs" />
     <Compile Include="TableStruct\Client\TBBuffClient.cs" />
+    <Compile Include="TableStruct\Client\TBTitleStringClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
     <Compile Include="TableStruct\Client\TBRandomGetClient.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Costume.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="TableStruct\Client\tb_Class_Speech.cs" />
     <Compile Include="TableStruct\Client\tb_Booster.cs" />
     <Compile Include="TableStruct\Client\tb_Skill.cs" />
+    <Compile Include="TableStruct\Client\TBSpeechString.cs" />
     <Compile Include="TableStruct\Client\tb_UI_String.cs" />
     <Compile Include="TableStruct\Client\tb_SystemMail.cs" />
     <Compile Include="TableStruct\Client\tb_Buff_Script.cs" />

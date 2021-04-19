@@ -471,6 +471,8 @@ namespace SWAdmin
             _supportedFiles.Add("tb_akashic_make.res", new TBAkashicMakeClient());
             _supportedFiles.Add("tb_buff.res", new TBBuffClient());
             _supportedFiles.Add("tb_random_get.res", new TBRandomGetClient());
+            _supportedFiles.Add("tb_title_string.res", new TBTitleStringClient());
+            _supportedFiles.Add("tb_speech_string.res", new TBSpeechStringClient());
         }
         string ToLow(string input)
         {
