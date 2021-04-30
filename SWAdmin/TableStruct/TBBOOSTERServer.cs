@@ -27,9 +27,6 @@ namespace SWAdmin.TableStruct
         {
             public UInt16 Booster_Index;
             public UInt16 Booster_Group;
-            public String Booster_Info_String = "";
-            public Byte Decrease_Condition;
-            public UInt32 Booster_Time;
             public Byte EffectType_01;
             public Byte EffectType_02;
             public Byte EffectType_03;
@@ -62,6 +59,9 @@ namespace SWAdmin.TableStruct
             public UInt16 EffectString_06;
             public UInt16 EffectString_07;
             public UInt16 EffectString_08;
+            public String Booster_Info_String = "";
+            public Byte Decrease_Condition;
+            public UInt32 Booster_Time;
 
 
             public override void beforeRead()
