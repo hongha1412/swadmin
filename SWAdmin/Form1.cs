@@ -473,6 +473,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_random_get.res", new TBRandomGetClient());
             _supportedFiles.Add("tb_title_string.res", new TBTitleStringClient());
             _supportedFiles.Add("tb_speech_string.res", new TBSpeechStringClient());
+            _supportedFiles.Add(ToLow("tb_Dye.res"), new tb_Dye_Client());
         }
         string ToLow(string input)
         {
