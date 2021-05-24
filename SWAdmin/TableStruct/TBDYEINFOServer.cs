@@ -28,8 +28,6 @@ namespace SWAdmin.TableStruct
             public UInt16 Dye_Info_ID;
             public UInt32 S_Dye_Need_Item_ID;
             public UInt32 S_Dye_Need_Item_CNT;
-            public UInt32 R_Dye_Need_Item_ID;
-            public Byte R_Dye_Need_Item_CNT;
             public UInt16 S_Dye_1;
             public UInt16 S_Dye_2;
             public UInt16 S_Dye_3;
@@ -40,6 +38,8 @@ namespace SWAdmin.TableStruct
             public UInt16 S_Dye_8;
             public UInt16 S_Dye_9;
             public UInt16 S_Dye_10;
+            public UInt32 R_Dye_Need_Item_ID;
+            public Byte R_Dye_Need_Item_CNT;
             public UInt16 Dye_Rate_ID_1;
             public UInt16 Dye_Rate_ID_2;
             public UInt16 Dye_Rate_ID_3;
