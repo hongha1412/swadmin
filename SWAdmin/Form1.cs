@@ -475,6 +475,7 @@ namespace SWAdmin
             _supportedFiles.Add("tb_speech_string.res", new TBSpeechStringClient());
             _supportedFiles.Add(ToLow("tb_Dye.res"), new tb_Dye_Client());
             _supportedFiles.Add(ToLow("tb_Item_SetItem.res"), new tb_Item_SetItem_Client());
+            _supportedFiles.Add(ToLow("tb_Costume_Socket.res"), new tb_Costume_Socket_Client());
         }
         string ToLow(string input)
         {
