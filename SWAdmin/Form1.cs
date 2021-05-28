@@ -478,6 +478,8 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Costume_Socket.res"), new tb_Costume_Socket_Client());
             _supportedFiles.Add(ToLow("tb_Gesture.res"), new tb_Gesture_Client());
             _supportedFiles.Add(ToLow("tb_Item_CostumeSet.res"), new tb_Item_CostumeSet_Client());
+            _supportedFiles.Add(ToLow("tb_item_model.res"), new tb_item_model_Client());
+
         }
         string ToLow(string input)
         {
