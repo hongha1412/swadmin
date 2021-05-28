@@ -475,6 +475,13 @@ namespace SWAdmin
             _supportedFiles.Add("tb_speech_string.res", new TBSpeechStringClient());
             _supportedFiles.Add(ToLow("tb_Dye.res"), new tb_Dye_Client());
             _supportedFiles.Add(ToLow("tb_Item_SetItem.res"), new tb_Item_SetItem_Client());
+            _supportedFiles.Add(ToLow("tb_Costume_Socket.res"), new tb_Costume_Socket_Client());
+            _supportedFiles.Add(ToLow("tb_Gesture.res"), new tb_Gesture_Client());
+            _supportedFiles.Add(ToLow("tb_Item_CostumeSet.res"), new tb_Item_CostumeSet_Client());
+            _supportedFiles.Add(ToLow("tb_item_model.res"), new tb_item_model_Client());
+            _supportedFiles.Add(ToLow("tb_Item_Package.res"), new tb_Item_Package_Client());
+            _supportedFiles.Add(ToLow("tb_Photo_Item.res"), new tb_Photo_Item_Client());
+            _supportedFiles.Add(ToLow("tb_RepackageCostume.res"), new tb_RepackageCostume_Client());
         }
         string ToLow(string input)
         {

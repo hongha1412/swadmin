@@ -121,6 +121,13 @@
     <Compile Include="TableStruct\Client\TBTitleStringClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
     <Compile Include="TableStruct\Client\TBRandomGetClient.cs" />
+    <Compile Include="TableStruct\Client\tb_RepackageCostume.cs" />
+    <Compile Include="TableStruct\Client\tb_Photo_Item.cs" />
+    <Compile Include="TableStruct\Client\tb_Item_Package.cs" />
+    <Compile Include="TableStruct\Client\tb_item_model.cs" />
+    <Compile Include="TableStruct\Client\tb_Item_CostumeSet.cs" />
+    <Compile Include="TableStruct\Client\tb_Gesture.cs" />
+    <Compile Include="TableStruct\Client\tb_Costume_Socket.cs" />
     <Compile Include="TableStruct\Client\tb_Dye.cs" />
     <Compile Include="TableStruct\Client\tb_Item_SetItem.cs" />
     <Compile Include="TableStruct\Client\tb_PC_Costume.cs" />
