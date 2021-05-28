@@ -121,6 +121,7 @@
     <Compile Include="TableStruct\Client\TBTitleStringClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
     <Compile Include="TableStruct\Client\TBRandomGetClient.cs" />
+    <Compile Include="TableStruct\Client\tb_Gesture.cs" />
     <Compile Include="TableStruct\Client\tb_Costume_Socket.cs" />
     <Compile Include="TableStruct\Client\tb_Dye.cs" />
     <Compile Include="TableStruct\Client\tb_Item_SetItem.cs" />
