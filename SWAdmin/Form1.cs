@@ -482,6 +482,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Item_Package.res"), new tb_Item_Package_Client());
             _supportedFiles.Add(ToLow("tb_Photo_Item.res"), new tb_Photo_Item_Client());
             _supportedFiles.Add(ToLow("tb_RepackageCostume.res"), new tb_RepackageCostume_Client());
+            _supportedFiles.Add(ToLow("tb_Dye_Info.res"), new tb_Dye_Info_Client());
         }
         string ToLow(string input)
         {

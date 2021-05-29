@@ -27,6 +27,12 @@ namespace SWAdmin.TableStruct
         {
             public UInt32 Item_CostumeSet_ID;
             public Byte Item_CostumeSet_Max;
+            public UInt32 ItemID_1;
+            public UInt32 ItemID_2;
+            public UInt32 ItemID_3;
+            public UInt32 ItemID_4;
+            public UInt32 ItemID_5;
+            public UInt32 ItemID_6;
             public Byte Need_Gesture_Item1;
             public UInt32 CostumeSet_Gesture1_ID;
             public Byte Need_Gesture_Item2;
@@ -39,13 +45,6 @@ namespace SWAdmin.TableStruct
             public UInt32 CostumeSet_Equalizer2_ID;
             public Byte Need_Equalizer_Item3;
             public UInt32 CostumeSet_Equalizer3_ID;
-            public UInt32 ItemID_1;
-            public UInt32 ItemID_2;
-            public UInt32 ItemID_3;
-            public UInt32 ItemID_4;
-            public UInt32 ItemID_5;
-            public UInt32 ItemID_6;
-
 
             public override void beforeRead()
             {
