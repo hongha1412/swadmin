@@ -13,12 +13,21 @@ namespace SWAdmin
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            foreach (var arg in args)
+            {
+                if(arg.Contains("Ver"))
+                {
+                    clientVer = arg;
+                    break;
+                }
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             new Form1().Show();
             Application.Run();
         }
+        public static string clientVer = "default";
     }
 }

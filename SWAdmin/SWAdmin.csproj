@@ -115,6 +115,7 @@
     <Compile Include="SWString.cs" />
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
+    <Compile Include="TableStruct\Client\JP_1_11_19_0\tb_Item_SetItem.cs" />
     <Compile Include="TableStruct\Client\TBAkashicMakeClient.cs" />
     <Compile Include="TableStruct\Client\TBAkashicRecordsClient.cs" />
     <Compile Include="TableStruct\Client\TBBuffClient.cs" />
@@ -429,6 +430,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TableStruct\Client\KR_1_7_56_10\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

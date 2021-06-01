@@ -484,6 +484,11 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_RepackageCostume.res"), new tb_RepackageCostume_Client());
             _supportedFiles.Add(ToLow("tb_Dye_Info.res"), new tb_Dye_Info_Client());
         }
+        private void InitClientKR_1_7_56_10_SupportedFiles() { }
+        private void InitClientJP_1_11_19_0_SupportedFiles() {
+            _supportedFiles = new Dictionary<string, BaseStruct>();
+            _supportedFiles.Add(ToLow("tb_Item_SetItem.res"), new SWAdmin.TableStruct.Client.JP_1_11_19_0.tb_Item_SetItem_Client());
+        }
         string ToLow(string input)
         {
             return input.ToString().ToLower();
@@ -604,7 +609,22 @@ namespace SWAdmin
             }
             else if (workerType == WorkerTypeEnum.LOAD_CLIENT_RES)
             {
-                this.InitClientSupportedFiles();
+                switch (Program.clientVer){
+                    case "VerKR1.7.56.10": {
+                            this.InitClientKR_1_7_56_10_SupportedFiles();
+                            break; 
+                        }
+                    case "VerJP1.11.19.0":
+                        {
+                            MessageBox.Show("DEBUG MSG "+Program.clientVer);
+                            InitClientJP_1_11_19_0_SupportedFiles();
+                            break;
+                        }
+                    default: {
+                            this.InitClientSupportedFiles();
+                            break; 
+                        }
+                }
             }
             if (string.IsNullOrEmpty(resPath))
             {
