@@ -116,6 +116,7 @@
     <Compile Include="SWWriter.cs" />
     <Compile Include="TableStruct\BaseStruct.cs" />
     <Compile Include="TableStruct\Client\JP_1_11_19_0\tb_Item_SetItem.cs" />
+    <Compile Include="TableStruct\Client\ST_1_8_14_0\tb_CashShop.cs" />
     <Compile Include="TableStruct\Client\TBAkashicMakeClient.cs" />
     <Compile Include="TableStruct\Client\TBAkashicRecordsClient.cs" />
     <Compile Include="TableStruct\Client\TBBuffClient.cs" />

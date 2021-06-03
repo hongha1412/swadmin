@@ -485,6 +485,10 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Dye_Info.res"), new tb_Dye_Info_Client());
         }
         private void InitClientKR_1_7_56_10_SupportedFiles() { }
+        private void InitClientST_1_8_14_0_SupportedFiles() {
+            _supportedFiles = new Dictionary<string, BaseStruct>();
+            _supportedFiles.Add(ToLow("tb_CashShop.res"), new SWAdmin.TableStruct.Client.ST_1_8_14_0.tb_CashShop_Client());
+        }
         private void InitClientJP_1_11_19_0_SupportedFiles() {
             _supportedFiles = new Dictionary<string, BaseStruct>();
             _supportedFiles.Add(ToLow("tb_Item_SetItem.res"), new SWAdmin.TableStruct.Client.JP_1_11_19_0.tb_Item_SetItem_Client());
@@ -609,6 +613,9 @@ namespace SWAdmin
             }
             else if (workerType == WorkerTypeEnum.LOAD_CLIENT_RES)
             {
+                if (Program.clientVer.Contains("Ver")){
+                    MessageBox.Show("DEBUG MSG " + Program.clientVer);
+                }
                 switch (Program.clientVer){
                     case "VerKR1.7.56.10": {
                             this.InitClientKR_1_7_56_10_SupportedFiles();
@@ -616,8 +623,12 @@ namespace SWAdmin
                         }
                     case "VerJP1.11.19.0":
                         {
-                            MessageBox.Show("DEBUG MSG "+Program.clientVer);
                             InitClientJP_1_11_19_0_SupportedFiles();
+                            break;
+                        }
+                    case "VerST1.8.14.0":
+                        {
+                            InitClientST_1_8_14_0_SupportedFiles();
                             break;
                         }
                     default: {
