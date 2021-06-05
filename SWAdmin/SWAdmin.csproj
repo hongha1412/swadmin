@@ -123,6 +123,7 @@
     <Compile Include="TableStruct\Client\TBTitleStringClient.cs" />
     <Compile Include="TableStruct\Client\TBNPCClient.cs" />
     <Compile Include="TableStruct\Client\TBRandomGetClient.cs" />
+    <Compile Include="TableStruct\Client\tb_Item_Classify.cs" />
     <Compile Include="TableStruct\Client\tb_Color.cs" />
     <Compile Include="TableStruct\Client\tb_ResVFX.cs" />
     <Compile Include="TableStruct\Client\tb_Dye_Info.cs" />

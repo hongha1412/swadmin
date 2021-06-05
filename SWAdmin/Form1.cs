@@ -485,6 +485,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Dye_Info.res"), new tb_Dye_Info_Client());
             _supportedFiles.Add(ToLow("tb_ResVFX.res"), new tb_ResVFX_Client());
             _supportedFiles.Add(ToLow("tb_Color.res"), new tb_Color_Client());
+            _supportedFiles.Add(ToLow("tb_Item_Classify.res"), new tb_Item_Classify_Client());
         }
         private void InitClientKR_1_7_56_10_SupportedFiles() { }
         private void InitClientST_1_8_14_0_SupportedFiles() {
