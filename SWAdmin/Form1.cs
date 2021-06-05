@@ -483,6 +483,7 @@ namespace SWAdmin
             _supportedFiles.Add(ToLow("tb_Photo_Item.res"), new tb_Photo_Item_Client());
             _supportedFiles.Add(ToLow("tb_RepackageCostume.res"), new tb_RepackageCostume_Client());
             _supportedFiles.Add(ToLow("tb_Dye_Info.res"), new tb_Dye_Info_Client());
+            _supportedFiles.Add(ToLow("tb_ResVFX.res"), new tb_ResVFX_Client());
         }
         private void InitClientKR_1_7_56_10_SupportedFiles() { }
         private void InitClientST_1_8_14_0_SupportedFiles() {
